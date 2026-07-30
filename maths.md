@@ -1,3 +1,8 @@
+A possibly overly optimistic interpretation of the maths follows.
+
+More conservatively:
+Chevron Attention factorises normalised retrieval mass into admitted and residual components. When the admitted mass also gates explicit memory writes, incompatible retained slots are protected from direct updates. Residual mass can signal unresolved evidence and be routed to provisional storage, although it is not intrinsically equivalent to novelty.
+
 # The Mathematics of Chevron Attention
 
 Chevron Attention is a variation of standard neural attention. The core mathematical innovation is that it breaks the attention mechanism into three strictly separated components: **retrieval**, **assent**, and **write permission**.
@@ -74,3 +79,6 @@ In the Chevron Agent:
 3. $w$ drops to 0.
 4. $q_t$ spikes to 1, telling the policy *"this is new."*
 5. Because $w=0$, the write equation bypasses the old memory, leaving it completely untouched and preserved. The novelty ($q_t$) is instead routed to a provisional candidate state for later consolidation.
+
+----
+
