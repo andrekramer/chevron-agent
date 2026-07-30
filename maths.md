@@ -5,9 +5,9 @@ Chevron Attention factorises normalised retrieval mass into admitted and residua
 
 # The Mathematics of Chevron Attention
 
-Chevron Attention is a variation of standard neural attention. The core mathematical innovation is that it breaks the attention mechanism into three strictly separated components: **retrieval**, **assent**, and **write permission**.
+Chevron Attention is a variation of standard neural attention. The core mathematical innovation is that it breaks the attention mechanism into three mostly separated components: **retrieval**, **assent**, and **write permission**.
 
-In standard attention (such as in a Transformer), the softmax function forces all attention weights to sum to 1. If an agent encounters a completely novel situation, standard attention is forced to distribute that "novelty" across existing, unrelated memories, corrupting them. Chevron Attention uses a mathematical gate to prevent this.
+In standard attention (such as in a Transformer), the softmax function forces all attention weights to sum to 1. If an agent encounters a completely novel situation, standard attention is forced to distribute that "novelty" across existing, unrelated memories, potentially corrupting them. Chevron Attention uses a mathematical gate to prevent this.
 
 Here is the step-by-step mathematical breakdown.
 
@@ -69,7 +69,7 @@ $$ N_{mem}[j] \leftarrow (1 - \eta_N w_{tj}) N_{mem}[j] + \eta_N w_{tj} T_N(A_t)
 
 ---
 
-### Summary: Solving the Stability-Plasticity Dilemma
+### Summary: Addressing the Stability-Plasticity Dilemma
 
 In a standard RL setup, if the agent enters a new room that looks *slightly* similar to a room it already knows, standard attention ($\alpha$) will retrieve the old memory and force an update to it, destroying the old memory's structure (catastrophic forgetting).
 
@@ -78,7 +78,7 @@ In the Chevron Agent:
 2. $r$ calculates the mismatch, realizes this is a *new* room, and drops to 0.
 3. $w$ drops to 0.
 4. $q_t$ spikes to 1, telling the policy *"this is new."*
-5. Because $w=0$, the write equation bypasses the old memory, leaving it completely untouched and preserved. The novelty ($q_t$) is instead routed to a provisional candidate state for later consolidation.
+5. Because $w=0$, the write equation bypasses the old memory, leaving it largely untouched and preserved. The novelty ($q_t$) is instead routed to a provisional candidate state for later consolidation.
 
 ----
 
