@@ -633,6 +633,12 @@ Can repeated matching build complex and actionable representations without requi
 
 The purpose of the Chevron Agent experiments is not to prove a metaphysics. It is to discover whether the cybernetic pattern suggested by it supports more adaptive, coherent and safely constrained agency.
 
+The earlier R-rule used an imaginary term to express A and N as complementary rather than directly interchangeable components. That notation should not, by itself, be mistaken for a complex-valued neural mechanism. The Chevron Attention design developed here is currently real-valued: it retrieves through A, matches the retrieved candidate against N, and gates both reading and retention through assent.
+
+A genuinely complex Chevron Network would be a separate future architectural hypothesis. It would need to preserve and manipulate phase so that constructive and destructive interference affected matching, binding or memory. Such a model may be worth investigating, but the present Chevron Agent programme does not depend upon it.
+
+The current claim is simpler: complementary computing can be implemented through distinct, interacting real-valued channels. Difference is made explicit, mismatch remains measurable, and unresolved retrieval can trigger reconsideration or search instead of corrupting retained memory.
+
 Conclusion
 Chevron agency does not seek to dissolve all difference into emptiness.
 
