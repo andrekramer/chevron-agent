@@ -1,10 +1,6 @@
-Andre's Baccalaureus in Arte Ingeniaria
-
-
 Chevron Agency
 Building with Difference Without Duality
-Andre Kramer
-Aug 06, 2026
+
 
 
 “You speak of nothing but differences! … your own strange hankering after differences.”
@@ -16,6 +12,8 @@ Yet without differentiation there can be no perception, learning or agency. A sy
 
 Thanks for reading Andre's Baccalaureus in Arte Ingeniaria! Subscribe for free to receive new posts and support my work.
 
+Type your email…
+Subscribe
 The aim is therefore not to flatten everything into emptiness or featureless nonduality. It is to preserve meaningful differences without turning every distinction into an absolute separation.
 
 Chevron Networks begin with two channels, A and N. Computationally they are distinct. Dynamically they continually intermix. Philosophically they may be understood as differentiated aspects of one evolving process.
@@ -67,10 +65,44 @@ A Chevron Network represents A and N as two interacting channels:
   
   
  
+[
+A
+′
  
+N
+′
+]
+[
+w
+A
+A
+w
+A
+N
+w
+N
+A
+w
+N
+N
+]
+[
+A
  
- 
+N
+]
+.
+
 A may react quickly to the current situation. N may retain slower structure. But the cross-connections mean that neither channel remains pure:
+
+A
+→
+N
+,
+N
+→
+A
+.
 
 Foreground alters background. Background shapes what can become foreground.
 
@@ -124,6 +156,22 @@ For Chevron Networks, this is an intuition rather than evidence. The architectur
 
 There is also an important difference. Classical Advaita tends toward an unchanging Brahman. Chevron Networks emphasize an evolving background:
 
+N
+t
+→
+A
+t
+→
+tension
+→
+R
+→
+N
+t
++
+1
+.
+
 The background is expressed as foreground, but it is also changed through encounter, action and retention.
 
 This is closer to a dynamic or cybernetic nonduality:
@@ -168,6 +216,22 @@ Complementary systems compute properties that the other system cannot compute al
 
 This suggests an interpretation of the complex form used in the R-rule:
 
+Ψ
+=
+α
+sin
+⁡
+θ
+A
+−
+i
+β
+cos
+⁡
+θ
+N
+.
+
 The imaginary unit (i) can mark A and N as different quadratures of one state.
 
 A and N are not ordinary scalar opposites. They are complementary processes:
@@ -191,11 +255,73 @@ The same pattern must repeat across levels.
 
 At each level (l):
 
+A
+l
+=
+foreground at level 
+l
+,
+
+N
+l
+=
+background at level 
+l
+,
+
+ψ
+l
+=
+unresolved tension at level 
+l
+.
+
 A sufficiently coherent relation at one level can form a temporary coalition that becomes material for the next:
 
  
- 
+(
+A
+l
+,
+N
+l
+)
+→
+R
+l
+C
+l
+,
+
+A
+l
++
+1
+=
+G
+l
+(
+C
+l
+,
+…
+)
+.
+
 This can build increasingly complex structures:
+
+features
+→
+boundaries and surfaces
+→
+objects
+→
+situations
+→
+possible actions
+→
+goals and reasons
+.
 
 But this is not a simple feed-forward ladder. Higher backgrounds also act downward. An expectation, intention or fear can alter which lower-level features become salient.
 
@@ -222,10 +348,53 @@ Hierarchy is therefore essential to Chevron agency. It allows tensions at sensor
 The R-rule as a matching rule
 The original R-rule was:
 
+ψ
+′
+=
+ψ
++
+η
+p
+(
+1
+−
+p
+)
+[
+α
+sin
+⁡
+θ
+A
+−
+i
+β
+cos
+⁡
+θ
+N
+]
+,
+
 with:
 
  
- 
+p
+b
+|
+ψ
+b
+|
+2
+∑
+c
+|
+ψ
+c
+|
+2
+.
+
 I originally interpreted this operationally as a learning rule driven by the difference between A and N.
 
 A different interpretation is now possible.
@@ -234,9 +403,22 @@ Let (Psi Ψ) represent the complete complementary A/N state. Let (psi ψ) repres
 
 The aim is then not:
 
+|
+Ψ
+|
+→
+0.
+
 That would suppress both A and N.
 
 The aim is:
+
+|
+ψ
+|
+→
+low
+.
 
 This means that A and N have entered a viable relationship.
 
@@ -249,6 +431,13 @@ intermediate tension encourages attention, investigation or adaptation;
 high tension may trigger reset, reframing or search.
 
 The factor:
+
+p
+(
+1
+−
+p
+)
 
 is largest in the unsettled middle region. Very low tension requires little adjustment. Very high tension may indicate that local adjustment is no longer appropriate.
 
@@ -300,6 +489,13 @@ What kind of tension is this?
 Counterfactuals and imagination
 Imagination deliberately produces a foreground that does not match present actuality.
 
+A
+imagined
+≉
+N
+actual
+.
+
 A competent system must preserve this mismatch without learning it as fact or acting as though it were already true.
 
 It requires a protected context:
@@ -344,6 +540,20 @@ This does not prove any metaphysical view. It does show why agency may require m
 Toward Chevron agency
 Agency begins when hierarchical matching closes through action:
 
+world
+→
+A
+/
+N
+ tension
+→
+R
+→
+action
+→
+changed world
+.
+
 An agent must coordinate tensions at several levels:
 
 sensory;
@@ -375,8 +585,6 @@ resisting the rewriting of deeper constraints under immediate pressure;
 escalating to outside judgement when consequences exceed confidence.
 
 The safe background is not merely a brake. It supplies the continuity through which separate actions become the actions of one accountable agent.
-
-
 
 
 [Narziss and Goldmund seeking both difference and non-duality.]
@@ -444,27 +652,197 @@ The task is to build with them without becoming trapped by them.
 Breakout: From the R-rule to Chevron Attention
 The R-rule can be read as a general expression of foreground–background tension:
 
+ψ
+′
+=
+ψ
++
+η
+p
+(
+1
+−
+p
+)
+[
+a
+sin
+⁡
+ϕ
+A
+−
+i
+b
+cos
+⁡
+ϕ
+N
+]
+.
+
 Here A is active foreground, N is retained background, and the imaginary unit marks their complementary roles. The rule does not require them to become identical. It describes adjustment within their relationship.
 
 Chevron Attention translates this intuition into retrieval, matching and retention.
 
 The fast A channel first retrieves candidate memories. Retrieval alone does not imply that their retained N content fits the current situation. An independent assent gate compares A with each candidate N. Only retrieved mass that also receives assent becomes admitted attention:
 
+w
+t
+j
+=
+ρ
+t
+j
+r
+t
+j
+.
+
 The mass that fails to receive assent remains explicit:
+
+ 
+q
+t
+=
+1
+−
+∑
+j
+w
+t
+j
+.
 
 This residual can be understood as unresolved A–N tension. Low residual indicates resonance. Intermediate residual invites investigation and adjustment. Very high residual suggests reset, search or the recruitment of a new provisional representation rather than modification of an incompatible existing memory.
 
 The R-rule’s factor
 
+p
+(
+1
+−
+p
+)
+
 suggests that active reconsideration should be strongest in the unsettled middle. In Chevron Attention, (p) may therefore be related to residual mass (q_t). Established memories are updated only through admitted mass (w), while residual tension drives search and provisional learning.
 
 The correspondence is not a literal derivation. It is a shared cybernetic grammar:
+
+foreground proposal
+→
+background matching
+→
+resonance or reset
+→
+retention
+.
 
 The R-rule supplies the philosophy of complementary tension. Chevron Attention turns it into an architecture that can be tested within a Chevron Agent.
 
  
  
  
+ 
+ 
+ 
+R-rule
+→
+foreground proposal
+retrieval
+→
+A--N matching
+assent
+→
+gating
+admitted attention
+→
+unadmitted mass
+residual tension
+→
+R response
+{
+resonance and retention
+,
+search or reset
+.
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+A
+t
+→
+retrieve
+ρ
+t
+j
+→
+match with 
+N
+mem
+[
+j
+]
+r
+t
+j
+→
+admit
+w
+t
+j
+=
+ρ
+t
+j
+r
+t
+j
+→
+residual
+q
+t
+=
+1
+−
+∑
+j
+w
+t
+j
+→
+R
+(
+q
+t
+)
+{
+resonance and retention
+,
+q
+t
+ 
+low
+,
+reconsideration
+,
+q
+t
+ 
+intermediate
+,
+search or reset
+,
+q
+t
+ 
+high
+.
+
 The (currently skeleton) github for Chevron Agent is: https://github.com/andrekramer/chevron-agent/tree/main
 
 Andre with ChatGPT-5.6
