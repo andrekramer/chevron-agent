@@ -1,0 +1,475 @@
+Andre's Baccalaureus in Arte Ingeniaria
+
+
+Chevron Agency
+Building with Difference Without Duality
+Andre Kramer
+Aug 06, 2026
+
+
+“You speak of nothing but differences! … your own strange hankering after differences.”
+— Goldmund to Narziss
+
+Goldmund’s complaint captures a real danger in any attempt to explain mind through distinctions. Once we divide perception into foreground and background, fast and slow processes, internal and external states, we can begin to mistake useful differences for independently existing realities.
+
+Yet without differentiation there can be no perception, learning or agency. A system that cannot distinguish one thing from another cannot notice change, recognize danger, imagine an alternative or choose an action.
+
+Thanks for reading Andre's Baccalaureus in Arte Ingeniaria! Subscribe for free to receive new posts and support my work.
+
+The aim is therefore not to flatten everything into emptiness or featureless nonduality. It is to preserve meaningful differences without turning every distinction into an absolute separation.
+
+Chevron Networks begin with two channels, A and N. Computationally they are distinct. Dynamically they continually intermix. Philosophically they may be understood as differentiated aspects of one evolving process.
+
+We build with difference because difference carries information.
+
+Foreground, background and tension
+At any moment, something becomes foreground.
+
+It may be a sensory event, an urgent question, an unexpected result, an imagined possibility or a proposed action. I call this A.
+
+Behind it lies a slower and wider background: retained experience, context, expectations, habits, values and constraints. I call this N.
+
+The relation between them produces tension.
+
+A simple description is:
+
+A = foreground
+
+N = background
+
+D = A − N
+
+But D should not be understood as an ordinary numerical error that must always be driven toward zero. It can indicate many different things:
+
+novelty;
+
+ambiguity;
+
+danger;
+
+a mistaken assumption;
+
+an imagined alternative;
+
+conflict between an urgent demand and a slower commitment;
+
+possible corruption of the process doing the judging.
+
+Agency begins not merely by reducing this tension, but by deciding what kind of tension it is.
+
+Should the system resonate and act? Should it investigate further? Should it preserve the mismatch because it is useful? Should it reset its present interpretation? Should it defer to another agent?
+
+This is already more than prediction.
+
+Chevron Networks build with difference
+A Chevron Network represents A and N as two interacting channels:
+
+  
+  
+ 
+ 
+ 
+ 
+A may react quickly to the current situation. N may retain slower structure. But the cross-connections mean that neither channel remains pure:
+
+Foreground alters background. Background shapes what can become foreground.
+
+The architecture therefore contains two channels without requiring two substances. A and N are computational roles within a coupled process.
+
+A useful way of putting this is:
+
+Chevron Networks build with difference without assuming separation.
+
+That distinction matters. A two-channel architecture can easily sound dualistic, as though A and N were separate things confronting one another. But their difference may instead be internal to one evolving system.
+
+N is this A
+The deeper intuition can be stated simply:
+
+N is this A, but N is not only this A.
+
+The foreground is not made from something alien to its background. It is the background expressed under a particular boundary, perspective and moment.
+
+A wave is ocean, but it is also genuinely this wave. It has a shape, location, direction and consequence. Recognizing that it is ocean does not erase its form.
+
+Likewise, non-separation should not mean that all distinctions are unreal or unimportant. Difference remains real as organization, relation and history.
+
+A and N can therefore be:
+
+distinct without being independent;
+
+differentiated without being detached;
+
+different in timescale and function without being different in substance.
+
+The tension between them becomes a self-difference within one process: the present against the retained past, the local against its wider context, or the actual against unrealized possibility.
+
+Brahman, Ātman and the differentiated self
+Advaita Vedānta expresses a similar intuition in the traditional formula:
+
+Brahma satyam, jagan mithya, jivo brahmaiva na parah.
+
+Approximately:
+
+Brahman is ultimately real; the world is dependently real; the individual living self is not other than Brahman.
+
+The word mithya is often rendered as illusion, but that can suggest that the world is simply nothing. A more useful reading is that the world and its forms do not possess a completely independent existence. They remain real and consequential as forms, but they are not made from something other than their ground.
+
+This is close to:
+
+N is this A, but N is not exhausted by this A.
+
+The situated individual, the jiva, is not the whole of Brahman. Yet it is not composed of something separate from Brahman.
+
+For Chevron Networks, this is an intuition rather than evidence. The architecture does not depend on Advaita being metaphysically true. The value of the intuition is that it prevents us from mistaking computational differentiation for ontological separation.
+
+There is also an important difference. Classical Advaita tends toward an unchanging Brahman. Chevron Networks emphasize an evolving background:
+
+The background is expressed as foreground, but it is also changed through encounter, action and retention.
+
+This is closer to a dynamic or cybernetic nonduality:
+
+Unity differentiates, the differentiation encounters consequences, and those consequences are retained.
+
+Schrödinger later found the Upanishadic identity of Ātman and Brahman philosophically compelling, seeing the apparent plurality of individual minds as expressions of a deeper unity. Bohm’s holomovement, implicate and explicate orders, and concept of active information offer another interpretation. The explicate foreground may be understood as a temporary unfolding of a more extensive implicate background, while active information gives that background a formative role without reducing it to a static internal representation. Neither thinker proves Advaita through quantum mechanics, but both suggest that the apparent separation of observer, observed and underlying process may be derivative rather than fundamental.
+
+The Hypercube of Opposites
+This returns to the Hypercube of Opposites.
+
+The Hypercube was never intended as a collection of permanently separated binaries. It describes several dimensions of tension within a larger space:
+
+stability and plasticity;
+
+action and restraint;
+
+openness and safety;
+
+self and other;
+
+exploration and conservation;
+
+foreground and background.
+
+The poles remain genuinely different. The point is not to merge them into a grey average.
+
+The Hypercube instead provides a structured space through which a system can move. A particular situation may foreground one pole, one edge or one region. Another context may reverse the relation.
+
+What counts as A at one moment may later become part of N. What appears as opposition at one level may become complementarity at another.
+
+Non-separation supplies the common space. The Hypercube preserves differentiation within it.
+
+This answers Goldmund’s objection without abandoning Narziss’s need for distinctions.
+
+We need differences, but we need not believe that everything differentiated is ultimately separate.
+
+Complementary computing
+Stephen Grossberg’s idea of complementary computing is especially relevant here.
+
+Complementary systems compute properties that the other system cannot compute alone. They are not duplicates, and they do not merely cancel one another. Each preserves information that the other necessarily loses.
+
+This suggests an interpretation of the complex form used in the R-rule:
+
+The imaginary unit (i) can mark A and N as different quadratures of one state.
+
+A and N are not ordinary scalar opposites. They are complementary processes:
+
+foreground and background;
+
+external constraint and internal organization;
+
+immediate differentiation and retained context.
+
+Their goal is therefore not to become identical.
+
+This also avoids naïve realism. N is not an internal photograph of an independent external world. The agent never has unmediated access to such a world. It has an ongoing relationship involving sensory effects, retained organization, action and renewed feedback.
+
+Matching means finding a viable relation between these complementary processes—a relation that survives further encounter with the world.
+
+Hierarchy and nested resonance
+A single A/N distinction is not enough to produce complex cognition.
+
+The same pattern must repeat across levels.
+
+At each level (l):
+
+A sufficiently coherent relation at one level can form a temporary coalition that becomes material for the next:
+
+ 
+ 
+This can build increasingly complex structures:
+
+But this is not a simple feed-forward ladder. Higher backgrounds also act downward. An expectation, intention or fear can alter which lower-level features become salient.
+
+The hierarchy is recurrent and bidirectional.
+
+I hesitate to call the result a world model. That phrase suggests an internal map standing apart from the territory.
+
+What the system develops may be better described as nested resonances:
+
+layered relational constraints;
+
+stabilized patterns of significance;
+
+structured possibilities for perception and action;
+
+an evolving repertoire of ways in which a situation can matter.
+
+An edge may be foreground against illumination. The edge becomes background within an object. The object becomes foreground within a scene. The scene becomes background for a decision. The decision becomes foreground against slower ethical or philosophical commitments.
+
+A and N are roles, not permanently assigned contents.
+
+Hierarchy is therefore essential to Chevron agency. It allows tensions at sensory, practical, normative and metacognitive levels to interact without being flattened into one scalar objective.
+
+The R-rule as a matching rule
+The original R-rule was:
+
+with:
+
+ 
+ 
+I originally interpreted this operationally as a learning rule driven by the difference between A and N.
+
+A different interpretation is now possible.
+
+Let (Psi Ψ) represent the complete complementary A/N state. Let (psi ψ) represent the unresolved or mismatched part of that relation.
+
+The aim is then not:
+
+That would suppress both A and N.
+
+The aim is:
+
+This means that A and N have entered a viable relationship.
+
+The R-rule becomes a matching or resonance rule:
+
+low tension permits stabilization and action;
+
+intermediate tension encourages attention, investigation or adaptation;
+
+high tension may trigger reset, reframing or search.
+
+The factor:
+
+is largest in the unsettled middle region. Very low tension requires little adjustment. Very high tension may indicate that local adjustment is no longer appropriate.
+
+This is where the rule begins to look more like Grossberg’s Adaptive Resonance Theory (ART) than a simple extension of predictive processing.
+
+ART, resonance and reset
+Grossberg’s ART does not merely minimize error between an input and a prediction.
+
+A bottom-up pattern is compared with a top-down expectation. A sufficiently good match permits resonance and learning. A severe mismatch can reset the current interpretation and initiate a search for another category.
+
+This distinction is important.
+
+A system should not always rewrite its background until the current foreground fits. Doing so risks catastrophic forgetting, rationalization and self-confirmation.
+
+Sometimes mismatch means:
+
+This interpretation is wrong. Search again.
+
+Sometimes it means:
+
+The present background is inadequate.
+
+Othertimes it means:
+
+Preserve the contradiction. It may be important.
+
+This gives Chevron matching a richer grammar than universal error minimization:
+
+resonance;
+
+productive tension;
+
+search;
+
+reset;
+
+retention;
+
+action.
+
+Predictive processing and active inference can mathematically represent many of these processes. They can include exploration, counterfactuals and future policies. The concern is not that they cannot describe them.
+
+The concern is that very different cognitive operations can all become redescribed as ways of minimizing free energy.
+
+Chevron matching asks a prior question:
+
+What kind of tension is this?
+
+Counterfactuals and imagination
+Imagination deliberately produces a foreground that does not match present actuality.
+
+A competent system must preserve this mismatch without learning it as fact or acting as though it were already true.
+
+It requires a protected context:
+
+Suppose this were true, rather than believe this is true.
+
+Counterfactual thought is therefore not simply failed prediction. It is controlled and labelled non-resonance.
+
+The system temporarily suspends ordinary matching, unfolds the consequences of an alternative, and then returns to the actual situation with new possibilities.
+
+Tension is not eliminated. It is used.
+
+The neurotoxic bootstrap
+The neurotoxic bootstrap hypothesis presents an even deeper matching problem.
+
+A neurotoxin may alter not only perception but also attention, memory, confidence and the machinery used to judge error.
+
+The question is no longer simply:
+
+Does A match N?
+
+It becomes:
+
+Can the system trust the process performing the match?
+
+The evolutionary transition may have been from:
+
+The world has changed.
+
+to:
+
+Perhaps I have changed.
+
+That requires second-order monitoring. The perceiver itself becomes part of what must be evaluated.
+
+In (2nd order) cybernetic terms, environmental disturbance acts upon an organism, the organism detects an inconsistency within its own processing, and the resulting behaviour changes the organism–environment loop.
+
+The environment becomes locally capable of responding to a disturbance occurring within its own relation to life.
+
+This does not prove any metaphysical view. It does show why agency may require more than prediction-error reduction. A system must sometimes monitor the reliability of its own matching processes.
+
+Toward Chevron agency
+Agency begins when hierarchical matching closes through action:
+
+An agent must coordinate tensions at several levels:
+
+sensory;
+
+situational;
+
+practical;
+
+normative;
+
+metacognitive.
+
+An action may match an immediate objective while conflicting with a slower commitment. It may be technically effective but ethically unacceptable. It may appear urgent while being based on corrupted perception.
+
+A Chevron Agent would therefore maintain a foreground A against several layers of N.
+
+Some parts of N may be highly adaptive. Others may form a slower and more protected core.
+
+That core should not dictate every answer. It should protect the conditions of responsible transformation:
+
+preserving uncertainty;
+
+preferring reversible action when confidence is low;
+
+retaining competing interpretations;
+
+resisting the rewriting of deeper constraints under immediate pressure;
+
+escalating to outside judgement when consequences exceed confidence.
+
+The safe background is not merely a brake. It supplies the continuity through which separate actions become the actions of one accountable agent.
+
+
+
+
+[Narziss and Goldmund seeking both difference and non-duality.]
+
+From philosophy to research
+These speculative ideas are intended to remain experimentally accountable, but they do not yet define a fixed experimental programme.
+
+They provide philosophical and cybernetic guidance for a developing line of Chevron Agent research using:
+
+Chevron Attention;
+
+repeated hierarchical A/N structures;
+
+conventional reinforcement-learning environments.
+
+The central technical question is whether an agent benefits from explicitly maintaining a foreground and a slower or wider background instead of compressing both into one undifferentiated state.
+
+The research direction asks whether such an architecture can support:
+
+adaptation without rapid overwriting;
+
+resonance and search rather than uniform error reduction;
+
+coordination across hierarchical levels;
+
+counterfactual possibilities that remain distinct from actuality;
+
+urgent action constrained by slower commitments;
+
+continuity of agency under environmental change.
+
+The philosophy does not prove that these mechanisms will work. Nor should it dictate every architectural choice.
+
+It supplies questions against which the resulting systems can be judged:
+
+Does the agent preserve meaningful differences without turning them into absolute separations?
+
+Can it sustain productive tension instead of suppressing every mismatch?
+
+Can urgent foreground demands interact with deeper backgrounds without either side permanently dominating?
+
+Can repeated matching build complex and actionable representations without requiring a detached internal map of the world?
+
+The purpose of the Chevron Agent experiments is not to prove a metaphysics. It is to discover whether the cybernetic pattern suggested by it supports more adaptive, coherent and safely constrained agency.
+
+Conclusion
+Chevron agency does not seek to dissolve all difference into emptiness.
+
+Difference is the means through which a process becomes sensitive to itself and its world. Foreground and background remain genuinely differentiated, but they are not necessarily separate realities.
+
+N is this A, but N is not only this A.
+
+The Hypercube preserves multiple tensions within a common space. Hierarchy builds nested resonances from local distinctions. Grossberg’s complementary computing and ART provide a grammar of matching, resonance and reset. The R-rule may offer a way to make this grammar computationally explicit. Chevron networks and attention a modern deep neural network implementation path.
+
+Closing the hierarchy through action gives the beginnings of Chevron agency:
+
+An agent capable of responding to urgent foregrounds through deeper backgrounds, preserving useful tension, testing possibilities in the world, and changing without losing the continuity required for safe and accountable action.
+
+Goldmund was right to be suspicious of a strange hankering after differences.
+
+But Narziss was also right: without differences, nothing can be known.
+
+The task is to build with them without becoming trapped by them.
+
+Breakout: From the R-rule to Chevron Attention
+The R-rule can be read as a general expression of foreground–background tension:
+
+Here A is active foreground, N is retained background, and the imaginary unit marks their complementary roles. The rule does not require them to become identical. It describes adjustment within their relationship.
+
+Chevron Attention translates this intuition into retrieval, matching and retention.
+
+The fast A channel first retrieves candidate memories. Retrieval alone does not imply that their retained N content fits the current situation. An independent assent gate compares A with each candidate N. Only retrieved mass that also receives assent becomes admitted attention:
+
+The mass that fails to receive assent remains explicit:
+
+This residual can be understood as unresolved A–N tension. Low residual indicates resonance. Intermediate residual invites investigation and adjustment. Very high residual suggests reset, search or the recruitment of a new provisional representation rather than modification of an incompatible existing memory.
+
+The R-rule’s factor
+
+suggests that active reconsideration should be strongest in the unsettled middle. In Chevron Attention, (p) may therefore be related to residual mass (q_t). Established memories are updated only through admitted mass (w), while residual tension drives search and provisional learning.
+
+The correspondence is not a literal derivation. It is a shared cybernetic grammar:
+
+The R-rule supplies the philosophy of complementary tension. Chevron Attention turns it into an architecture that can be tested within a Chevron Agent.
+
+ 
+ 
+ 
+The (currently skeleton) github for Chevron Agent is: https://github.com/andrekramer/chevron-agent/tree/main
+
+Andre with ChatGPT-5.6
+
+August 2026
+
+Thanks for reading Andre's Baccalaureus in Arte Ingeniaria! Subscribe for free to receive new posts and support my work.
+
