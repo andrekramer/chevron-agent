@@ -1,3 +1,9 @@
+> [!WARNING]
+> **Deprecated:** this first formulation is preserved as historical context.
+> The current working mathematical specification is [maths2.md](maths2.md),
+> which separates read admission from write permission and adds per-slot
+> residual and provisional-allocation mechanics.
+
 A possibly overly optimistic interpretation of the maths follows.
 
 More conservatively:
@@ -81,4 +87,3 @@ In the Chevron Agent:
 5. Because $w=0$, the write equation bypasses the old memory, leaving it largely untouched and preserved. The novelty ($q_t$) is instead routed to a provisional candidate state for later consolidation.
 
 ----
-
