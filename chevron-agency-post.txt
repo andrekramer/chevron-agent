@@ -434,12 +434,13 @@ high tension may trigger reset, reframing or search.
 
 The factor:
 
+sqt(
 p
 (
 1
 −
 p
-)
+))
 
 is largest in the unsettled middle region. Very low tension requires little adjustment. Very high tension may indicate that local adjustment is no longer appropriate.
 
@@ -660,12 +661,14 @@ The R-rule can be read as a general expression of foreground–background tensio
 ψ
 +
 η
+*
+sqrt(
 p
 (
 1
 −
 p
-)
+))
 [
 a
 sin
@@ -719,12 +722,13 @@ This residual can be understood as unresolved A–N tension. Low residual indica
 
 The R-rule’s factor
 
+sqrt(
 p
 (
 1
 −
 p
-)
+))
 
 suggests that active reconsideration should be strongest in the unsettled middle. In Chevron Attention, (p) may therefore be related to residual mass (q_t). Established memories are updated only through admitted mass (w), while residual tension drives search and provisional learning.
 
