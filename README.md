@@ -46,3 +46,21 @@ python -m experiments.experiment_002_learned_assent
 See the [frozen protocol](experiments/experiment_002_protocol.md), generated
 [Experiment 002 report](experiments/results/experiment_002_report.md), and
 [raw results](experiments/results/experiment_002_results.json).
+
+## Experiment 003: delayed buffer bridge
+
+The final supervised pre-RL experiment gives Chevron and a conventional direct
+MLP the same A/N evidence and the same 314-parameter budget. It then introduces
+nearby new categories whose outcomes arrive three steps late, comparing
+capacity-1 and capacity-2 provisional buffers with candidates interposed into
+N immediately.
+
+Run the frozen ten-seed confirmation:
+
+```bash
+python -m experiments.experiment_003_delayed_buffer
+```
+
+See the [frozen protocol](experiments/experiment_003_protocol.md), generated
+[Experiment 003 report](experiments/results/experiment_003_report.md), and
+[raw results](experiments/results/experiment_003_results.json).

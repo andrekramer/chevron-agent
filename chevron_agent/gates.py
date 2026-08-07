@@ -19,6 +19,16 @@ class AssentGateOutput:
     slope: Tensor
 
 
+@dataclass(frozen=True)
+class DirectDecisionOutput:
+    """A conventional slot-or-null decision without assent factorisation."""
+
+    logits: Tensor
+    probabilities: Tensor
+    slot_mass: Tensor
+    null_mass: Tensor
+
+
 def _inverse_softplus(value: float) -> float:
     return math.log(math.expm1(value))
 
@@ -107,3 +117,72 @@ class ProjectedCosineAssent(nn.Module):
         mismatch = self.compare(evidence, retained)
         write_threshold = torch.clamp(self.threshold - threshold_margin, min=0.0)
         return torch.sigmoid(self.slope * (write_threshold - mismatch))
+
+
+class DirectPairMLP(nn.Module):
+    """Choose a memory slot or a learned null class from the same A/N evidence.
+
+    Unlike :class:`ProjectedCosineAssent`, this control directly produces one
+    softmax over memory slots and ``none of the above``. Retrieval relevance
+    can be supplied as a log prior, but there is no separately observable
+    assent gate or residual conservation rule.
+
+    With 12-dimensional evidence/content and a hidden width of 12 this module
+    has 314 parameters, exactly matching a 13-dimensional projected-cosine
+    Chevron gate.
+    """
+
+    def __init__(
+        self,
+        evidence_dim: int,
+        retained_dim: int,
+        hidden_dim: int,
+        *,
+        eps: float = 1e-8,
+    ) -> None:
+        super().__init__()
+        if evidence_dim <= 0 or retained_dim <= 0 or hidden_dim <= 0:
+            raise ValueError("all dimensions must be positive")
+        if eps <= 0.0:
+            raise ValueError("eps must be positive")
+        self.pair_scorer = nn.Sequential(
+            nn.Linear(evidence_dim + retained_dim, hidden_dim),
+            nn.Tanh(),
+            nn.Linear(hidden_dim, 1),
+        )
+        self.null_logit = nn.Parameter(torch.zeros(()))
+        self.eps = eps
+
+    def forward(
+        self,
+        evidence: Tensor,
+        retained: Tensor,
+        *,
+        retrieval_mass: Tensor | None = None,
+    ) -> DirectDecisionOutput:
+        if evidence.ndim != 2:
+            raise ValueError("evidence must be [batch, dim]")
+        if retained.ndim == 2:
+            retained = retained.unsqueeze(1)
+        if retained.ndim != 3 or retained.shape[0] != evidence.shape[0]:
+            raise ValueError("retained must be [batch, slots, dim]")
+
+        batch, slots, _ = retained.shape
+        evidence_slots = evidence.unsqueeze(1).expand(-1, slots, -1)
+        pair_features = torch.cat((evidence_slots, retained), dim=-1)
+        slot_logits = self.pair_scorer(pair_features).squeeze(-1)
+        if retrieval_mass is not None:
+            if retrieval_mass.shape != (batch, slots):
+                raise ValueError("retrieval_mass must be [batch, slots]")
+            slot_logits = slot_logits + torch.log(
+                retrieval_mass.clamp_min(self.eps)
+            )
+        null_logits = self.null_logit.expand(batch, 1)
+        logits = torch.cat((slot_logits, null_logits), dim=-1)
+        probabilities = torch.softmax(logits, dim=-1)
+        return DirectDecisionOutput(
+            logits=logits,
+            probabilities=probabilities,
+            slot_mass=probabilities[:, :-1],
+            null_mass=probabilities[:, -1],
+        )

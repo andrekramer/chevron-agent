@@ -4,7 +4,7 @@ import unittest
 
 import torch
 
-from chevron_agent import ProjectedCosineAssent
+from chevron_agent import DirectPairMLP, ProjectedCosineAssent
 
 
 class ProjectedCosineAssentTests(unittest.TestCase):
@@ -40,6 +40,29 @@ class ProjectedCosineAssentTests(unittest.TestCase):
         self.assertTrue(torch.all(write < read).item())
         with self.assertRaises(ValueError):
             gate.assent_with_margin(evidence, retained, threshold_margin=0.0)
+
+
+class DirectPairMLPTests(unittest.TestCase):
+    def test_parameter_budget_matches_chevron_gate(self) -> None:
+        chevron = ProjectedCosineAssent(12, 12, 13)
+        direct = DirectPairMLP(12, 12, 12)
+        self.assertEqual(
+            sum(parameter.numel() for parameter in chevron.parameters()),
+            sum(parameter.numel() for parameter in direct.parameters()),
+        )
+        self.assertEqual(sum(p.numel() for p in direct.parameters()), 314)
+
+    def test_direct_probabilities_include_null_and_conserve_mass(self) -> None:
+        model = DirectPairMLP(5, 5, 4)
+        evidence = torch.randn(3, 5)
+        retained = torch.randn(3, 2, 5)
+        retrieval = torch.softmax(torch.randn(3, 2), dim=-1)
+        output = model(evidence, retained, retrieval_mass=retrieval)
+        self.assertEqual(output.logits.shape, (3, 3))
+        self.assertTrue(
+            torch.allclose(output.probabilities.sum(dim=-1), torch.ones(3))
+        )
+        self.assertTrue(torch.all((output.null_mass >= 0) & (output.null_mass <= 1)))
 
 
 if __name__ == "__main__":
