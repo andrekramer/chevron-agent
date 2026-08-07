@@ -7,6 +7,7 @@ from .attention import (
     chevron_attention,
     normalized_cosine_mismatch,
 )
+from .gates import AssentGateOutput, ProjectedCosineAssent
 
 __all__ = [
     "ChevronAttentionConfig",
@@ -14,4 +15,6 @@ __all__ = [
     "apply_convex_write",
     "chevron_attention",
     "normalized_cosine_mismatch",
+    "AssentGateOutput",
+    "ProjectedCosineAssent",
 ]

@@ -29,3 +29,20 @@ python -m experiments.experiment_001_factorisation
 See the generated
 [Experiment 001 report](experiments/results/experiment_001_report.md) and
 [raw results](experiments/results/experiment_001_results.json).
+
+## Experiment 002: learned assent
+
+The second experiment replaces the hand-set compatibility rule with a learned
+gate. Diagnostic A evidence and retained N content are independently encoded,
+while a parameter-matched retrieval-twice control receives only address
+features. The frozen confirmation uses ten fresh training seeds.
+
+Run the confirmation experiment:
+
+```bash
+python -m experiments.experiment_002_learned_assent
+```
+
+See the [frozen protocol](experiments/experiment_002_protocol.md), generated
+[Experiment 002 report](experiments/results/experiment_002_report.md), and
+[raw results](experiments/results/experiment_002_results.json).
