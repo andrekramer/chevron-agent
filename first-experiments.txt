@@ -1,0 +1,131 @@
+Chevron Agent: three experiments in brief
+
+Chevron Attention separates two questions that ordinary attention often combines:
+
+
+
+
+
+Which memory is relevant?
+
+
+
+Should that memory be trusted and allowed to influence or update the system?
+
+The fast A channel represents current experience. The slower N channel represents retained knowledge. An “assent” check compares them before information is read or written.
+
+Experiment 1: Does the separation work at all?
+
+We created situations where two memories looked equally relevant, but only one was consistent with the current evidence.
+
+Standard attention and a “retrieval twice” control could not reliably distinguish them. Chevron Attention could, because retrieval and assent used different information.
+
+Result:
+
+
+
+
+
+Standard attention: 33%
+
+
+
+Retrieval twice: 33%
+
+
+
+Chevron Attention: 100%
+
+This was a deliberately simple, hand-configured demonstration. It established that separating relevance from acceptance can solve a problem that retrieval alone cannot.
+
+Experiment 2: Can assent be learned?
+
+The first experiment used a fixed compatibility rule. The second asked whether the A/N assent check could be learned from examples and remain reliable under noise.
+
+Across ten independent runs:
+
+
+
+
+
+Standard attention: 33%
+
+
+
+Learned retrieval twice: 33%
+
+
+
+Learned Chevron assent: 91.5%
+
+Chevron accepted 92.7% of familiar cases while rejecting 89.1% of incompatible or “none of the above” cases.
+
+This showed that assent does not need to be manually programmed. A small neural gate can learn it reliably and produce an explicit unresolved signal when no memory should be trusted.
+
+Experiment 3: Is this a fair comparison, and how should unresolved information be stored?
+
+The third experiment gave Chevron and a conventional neural network exactly the same information and the same number of parameters.
+
+On the static test:
+
+
+
+
+
+Conventional MLP: 78.2%
+
+
+
+Chevron: 91.9%
+
+This suggests Chevron has a useful built-in bias for comparing current evidence with retained memory. It does not mean an MLP cannot learn the task.
+
+We then introduced a sequence in which new categories appeared and the correct outcome was revealed three steps later. Uncertain information could either wait in a small provisional buffer or be written into retained memory immediately.
+
+Results:
+
+
+
+
+
+Chevron with a two-entry buffer: 94.0%
+
+
+
+Chevron with a one-entry buffer: 93.8%
+
+
+
+Conventional MLP with a two-entry buffer: 92.6%
+
+
+
+Chevron with candidates written directly into N: 91.0%
+
+
+
+Standard attention: 38.5%
+
+The two-entry buffer beat immediate writing in all ten runs. It retained all eight original categories and learned all four new ones every time. Immediate writing caused approximately 45 premature writes and 15 overwrites of established memory per run.
+
+Overall first experiments conclusion
+
+The experiments support three increasingly strong findings:
+
+
+
+
+
+Retrieval and acceptance are meaningfully different operations.
+
+
+
+An independent assent mechanism can be learned.
+
+
+
+Unresolved information should wait outside stable memory until later evidence justifies consolidation.
+
+Chevron attention performed better than an equally sized conventional comparator on the controlled compatibility test. However, the conventional network also performed well once given the protected buffer. This suggests that Chevron’s contribution may be a combination of a useful comparison bias and explicit, inspectable memory-protection rules—not a claim that ordinary neural networks cannot solve the same problems.
+
+These remain small supervised experiments, not evidence of a general agent. The next step is reinforcement learning: testing whether reward and experience can teach assent and consolidation while an agent acts in a changing environment.
