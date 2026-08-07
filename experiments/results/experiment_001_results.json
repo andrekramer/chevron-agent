@@ -1,0 +1,316 @@
+{
+  "experiment": "001_causal_factorisation",
+  "status": "diagnostic_not_rl",
+  "protocol": {
+    "seeds": 50,
+    "groups_per_seed": 8,
+    "slots_per_group": 2,
+    "content_dimension": 16,
+    "evidence_noise_levels": [
+      0.0,
+      0.02,
+      0.05,
+      0.1
+    ],
+    "address_noise": 0.02,
+    "queries_per_method": 4800,
+    "read_threshold": 0.15,
+    "write_threshold": 0.08,
+    "read_slope": 40.0,
+    "write_slope": 50.0,
+    "allocation_residual_threshold": 0.8,
+    "allocation_admitted_threshold": 0.25
+  },
+  "causal_interventions": {
+    "alpha_max_change": {
+      "mean": 0.0,
+      "maximum": 0.0,
+      "minimum": 0.0
+    },
+    "chevron_assent_switch_margin": {
+      "mean": 0.9932536941953003,
+      "maximum": 0.9975274205207825,
+      "minimum": 0.6899662017822266
+    },
+    "retrieval_twice_assent_max_change": {
+      "mean": 0.0,
+      "maximum": 0.0,
+      "minimum": 0.0
+    }
+  },
+  "methods": {
+    "standard_attention": {
+      "queries": 4800,
+      "overall_accuracy_pct": 33.33333333333333,
+      "match_accuracy_pct": 50.0,
+      "no_match_accuracy_pct": 0.0,
+      "mean_match_target_read_mass": 0.4880426144041121,
+      "mean_match_non_target_read_mass": 0.5119573777541518,
+      "mean_no_match_residual": 0.0,
+      "no_match_provisional_allocation_pct": 0.0,
+      "match_false_allocation_pct": 0.0,
+      "mean_no_match_memory_drift_l2": 0.1473351227119565,
+      "mean_match_target_write_gate": 0.4880426144041121,
+      "mean_match_non_target_write_gate": 0.5119573777541518,
+      "by_evidence_noise": {
+        "0.00": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        },
+        "0.02": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        },
+        "0.05": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        },
+        "0.10": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        }
+      }
+    },
+    "retrieval_twice": {
+      "queries": 4800,
+      "overall_accuracy_pct": 33.33333333333333,
+      "match_accuracy_pct": 50.0,
+      "no_match_accuracy_pct": 0.0,
+      "mean_match_target_read_mass": 0.4868337806686759,
+      "mean_match_non_target_read_mass": 0.4868337806686759,
+      "mean_no_match_residual": 0.0263324386626482,
+      "no_match_provisional_allocation_pct": 0.0,
+      "match_false_allocation_pct": 0.0,
+      "mean_no_match_memory_drift_l2": 0.14139206775464117,
+      "mean_match_target_write_gate": 0.4792459082044661,
+      "mean_match_non_target_write_gate": 0.4792459082044661,
+      "by_evidence_noise": {
+        "0.00": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        },
+        "0.02": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        },
+        "0.05": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        },
+        "0.10": {
+          "accuracy_pct": 33.33333333333333,
+          "match_accuracy_pct": 50.0,
+          "no_match_accuracy_pct": 0.0
+        }
+      }
+    },
+    "chevron": {
+      "queries": 4800,
+      "overall_accuracy_pct": 100.0,
+      "match_accuracy_pct": 100.0,
+      "no_match_accuracy_pct": 100.0,
+      "mean_match_target_read_mass": 0.48560648772865533,
+      "mean_match_non_target_read_mass": 0.0009174486994743348,
+      "mean_no_match_residual": 0.9999328185617924,
+      "no_match_provisional_allocation_pct": 100.0,
+      "match_false_allocation_pct": 0.0,
+      "mean_no_match_memory_drift_l2": 2.3940089415514997e-07,
+      "mean_match_target_write_gate": 0.46680947627406566,
+      "mean_match_non_target_write_gate": 1.9997726194560528e-05,
+      "by_evidence_noise": {
+        "0.00": {
+          "accuracy_pct": 100.0,
+          "match_accuracy_pct": 100.0,
+          "no_match_accuracy_pct": 100.0
+        },
+        "0.02": {
+          "accuracy_pct": 100.0,
+          "match_accuracy_pct": 100.0,
+          "no_match_accuracy_pct": 100.0
+        },
+        "0.05": {
+          "accuracy_pct": 100.0,
+          "match_accuracy_pct": 100.0,
+          "no_match_accuracy_pct": 100.0
+        },
+        "0.10": {
+          "accuracy_pct": 100.0,
+          "match_accuracy_pct": 100.0,
+          "no_match_accuracy_pct": 100.0
+        }
+      }
+    }
+  },
+  "claim_boundary": "This engineered diagnostic tests the declared equations and causal separation. It does not show that an RL optimizer will learn the factorisation from reward, or that Chevron improves game performance.",
+  "stress_test": {
+    "protocol": {
+      "seeds": 20,
+      "groups_per_seed": 8,
+      "slots_per_group": 2,
+      "content_dimension": 16,
+      "evidence_noise_levels": [
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.4
+      ],
+      "address_noise": 0.02,
+      "queries_per_method": 2880,
+      "read_threshold": 0.15,
+      "write_threshold": 0.08,
+      "read_slope": 40.0,
+      "write_slope": 50.0,
+      "allocation_residual_threshold": 0.8,
+      "allocation_admitted_threshold": 0.25
+    },
+    "methods": {
+      "standard_attention": {
+        "queries": 2880,
+        "overall_accuracy_pct": 33.33333333333333,
+        "match_accuracy_pct": 50.0,
+        "no_match_accuracy_pct": 0.0,
+        "mean_match_target_read_mass": 0.4880510963189105,
+        "mean_match_non_target_read_mass": 0.5119488963236412,
+        "mean_no_match_residual": 0.0,
+        "no_match_provisional_allocation_pct": 0.0,
+        "match_false_allocation_pct": 0.0,
+        "mean_no_match_memory_drift_l2": 0.1468161237736543,
+        "mean_match_target_write_gate": 0.4880510963189105,
+        "mean_match_non_target_write_gate": 0.5119488963236412,
+        "by_evidence_noise": {
+          "0.10": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.15": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.20": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.25": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.30": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.40": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          }
+        }
+      },
+      "retrieval_twice": {
+        "queries": 2880,
+        "overall_accuracy_pct": 33.33333333333333,
+        "match_accuracy_pct": 50.0,
+        "no_match_accuracy_pct": 0.0,
+        "mean_match_target_read_mass": 0.48684220677241685,
+        "mean_match_non_target_read_mass": 0.48684220677241685,
+        "mean_no_match_residual": 0.02631558645516634,
+        "no_match_provisional_allocation_pct": 0.0,
+        "match_false_allocation_pct": 0.0,
+        "mean_no_match_memory_drift_l2": 0.1408859143499285,
+        "mean_match_target_write_gate": 0.47925391991933186,
+        "mean_match_non_target_write_gate": 0.47925391991933186,
+        "by_evidence_noise": {
+          "0.10": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.15": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.20": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.25": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.30": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          },
+          "0.40": {
+            "accuracy_pct": 33.33333333333333,
+            "match_accuracy_pct": 50.0,
+            "no_match_accuracy_pct": 0.0
+          }
+        }
+      },
+      "chevron": {
+        "queries": 2880,
+        "overall_accuracy_pct": 79.65277777777777,
+        "match_accuracy_pct": 69.47916666666667,
+        "no_match_accuracy_pct": 100.0,
+        "mean_match_target_read_mass": 0.3131635407747431,
+        "mean_match_non_target_read_mass": 0.0011091725151680738,
+        "mean_no_match_residual": 0.9999357989057899,
+        "no_match_provisional_allocation_pct": 100.0,
+        "match_false_allocation_pct": 30.364583333333332,
+        "mean_no_match_memory_drift_l2": 2.0332574384327937e-07,
+        "mean_match_target_write_gate": 0.17025802292911907,
+        "mean_match_non_target_write_gate": 3.561798416159105e-05,
+        "by_evidence_noise": {
+          "0.10": {
+            "accuracy_pct": 100.0,
+            "match_accuracy_pct": 100.0,
+            "no_match_accuracy_pct": 100.0
+          },
+          "0.15": {
+            "accuracy_pct": 99.375,
+            "match_accuracy_pct": 99.0625,
+            "no_match_accuracy_pct": 100.0
+          },
+          "0.20": {
+            "accuracy_pct": 93.125,
+            "match_accuracy_pct": 89.6875,
+            "no_match_accuracy_pct": 100.0
+          },
+          "0.25": {
+            "accuracy_pct": 76.25,
+            "match_accuracy_pct": 64.375,
+            "no_match_accuracy_pct": 100.0
+          },
+          "0.30": {
+            "accuracy_pct": 61.875,
+            "match_accuracy_pct": 42.8125,
+            "no_match_accuracy_pct": 100.0
+          },
+          "0.40": {
+            "accuracy_pct": 47.291666666666664,
+            "match_accuracy_pct": 20.9375,
+            "no_match_accuracy_pct": 100.0
+          }
+        }
+      }
+    }
+  }
+}
