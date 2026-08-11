@@ -111,3 +111,10 @@ That encoder should first be tested on this task by hiding or scrambling the
 given content geometry. Only after it reconstructs a comparison space that
 recovers the geometric-gate result should the project proceed to a spatial
 trap/shortcut environment.
+
+Experiments 006 and 006a performed that test. Temporal contrastive learning
+recovered substantial latent geometry and greatly improved downstream return,
+but missed the frozen retention, acquisition, calibration, and oracle-distance
+criteria. Label-free threshold and slope calibration did not close the gap.
+The next representation hypothesis must therefore predict transitions or
+consequences, rather than relying only on temporal view identity.

@@ -145,3 +145,56 @@ See the [protocol and outcome](experiments/experiment_005a_protocol.md),
 [findings](experiments/results/experiment_005a_findings.md),
 [diagnostic report](experiments/results/experiment_005a_geometric_report.md),
 and [fresh-seed confirmation report](experiments/results/experiment_005a_confirmation_report.md).
+
+## Experiment 006: temporal-contrastive geometry
+
+Experiment 006 hides the useful latent geometry behind a fixed nonlinear
+sensor. A small 812-parameter encoder receives paired adjacent views of
+persisting states and trains with symmetric InfoNCE. It receives no category,
+action, reward, compatibility, or memory labels. The encoder is frozen before
+the confirmed geometric Chevron mechanism is applied.
+
+```bash
+python -m experiments.experiment_006_predictive_geometry --label development
+```
+
+The encoder raised latent-cosine correlation from 0.453 to 0.784 and downstream
+return from 0.346 to 0.732, but narrowly missed the frozen retention,
+acquisition, calibration, and oracle-distance criteria. Confirmation was not
+run.
+
+Experiment 006a tested whether the remaining gap was only a mismatch-scale
+problem by deriving the threshold and slope from unlabelled temporal-positive
+and hard-negative distributions:
+
+```bash
+python -m experiments.experiment_006a_calibrated_gate --label development
+```
+
+Calibration did not improve the inherited gate, so its confirmation was also
+withheld. See the [Experiment 006 protocol](experiments/experiment_006_protocol.md),
+[Experiment 006 findings](experiments/results/experiment_006_development_findings.md),
+[Experiment 006a protocol](experiments/experiment_006a_protocol.md), and
+[Experiment 006a findings](experiments/results/experiment_006a_development_findings.md).
+
+## Experiment 007: action-conditioned prediction
+
+Experiment 007 trains the same compact encoder to predict the next embedding
+under one of four fixed latent actions. Pretraining receives observations,
+random actions, and next observations, but no categories, downstream policy,
+reward, compatibility, or memory labels.
+
+```bash
+python -m experiments.experiment_007_action_prediction --label development
+```
+
+The forward model learned its task, producing a 0.643 cosine gap between true
+and permuted next embeddings. Nevertheless, it recovered less useful comparison
+geometry than temporal contrastive learning and reduced Chevron return from
+0.738 to 0.700 and novel accuracy from 0.753 to 0.632. Confirmation was not
+triggered.
+
+See the [protocol and outcome](experiments/experiment_007_protocol.md),
+[development findings](experiments/results/experiment_007_development_findings.md),
+[report](experiments/results/experiment_007_development_report.md), and
+[raw results](experiments/results/experiment_007_development_results.json).

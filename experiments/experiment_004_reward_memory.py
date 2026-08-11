@@ -72,6 +72,7 @@ class ExperimentConfig:
     admitted_threshold: float = 0.25
     standard_similarity_threshold: float = 0.62
     standard_temperature: float = 0.10
+    geometric_slope: float = 40.0
     write_threshold_margin: float = 0.05
     value_update_rate: float = 0.35
     content_update_rate: float = 0.05
@@ -493,6 +494,7 @@ class RewardMemoryAgent:
                 observation.evidence,
                 content,
                 similarity_threshold=self.config.standard_similarity_threshold,
+                slope=self.config.geometric_slope,
             )
             slot_mass = alpha * assent
             q = 1.0 - slot_mass.sum()
@@ -503,6 +505,7 @@ class RewardMemoryAgent:
                     observation.evidence,
                     content,
                     similarity_threshold=self.config.standard_similarity_threshold,
+                    slope=self.config.geometric_slope,
                     threshold_margin=self.config.write_threshold_margin,
                 )
             should_candidate = bool(
