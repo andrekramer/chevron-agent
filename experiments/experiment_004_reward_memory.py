@@ -321,6 +321,27 @@ def retrospective_consistency_loss(
     )
 
 
+def geometric_cosine_assent(
+    evidence: Tensor,
+    retained: Tensor,
+    *,
+    similarity_threshold: float,
+    slope: float = 40.0,
+    threshold_margin: float = 0.0,
+) -> Tensor:
+    """Parameter-free assent in the task's known content geometry."""
+
+    if not -1.0 < similarity_threshold < 1.0:
+        raise ValueError("similarity_threshold must be inside (-1, 1)")
+    if slope <= 0.0:
+        raise ValueError("slope must be positive")
+    if threshold_margin < 0.0:
+        raise ValueError("threshold_margin must be non-negative")
+    mismatch = 0.5 * (1.0 - retained @ evidence)
+    mismatch_threshold = 0.5 * (1.0 - similarity_threshold) - threshold_margin
+    return torch.sigmoid(slope * (mismatch_threshold - mismatch))
+
+
 def make_lifetime(config: ExperimentConfig, seed: int) -> Lifetime:
     generator = torch.Generator().manual_seed(seed)
     prototypes: list[Tensor] = []
@@ -421,7 +442,7 @@ class RewardMemoryAgent:
 
     @property
     def is_chevron(self) -> bool:
-        return self.condition.startswith("chevron")
+        return "chevron" in self.condition
 
     def _content(self) -> Tensor:
         return torch.stack([slot.content for slot in self.slots])
@@ -463,6 +484,27 @@ class RewardMemoryAgent:
             q = output.null_mass.squeeze(0)
             assent = slot_mass / alpha.clamp_min(1e-8)
             write_assent = assent
+            should_candidate = bool(
+                q.detach() > self.config.null_threshold
+                and slot_mass.max().detach() < self.config.admitted_threshold
+            )
+        elif self.condition.startswith("geometric_chevron"):
+            assent = geometric_cosine_assent(
+                observation.evidence,
+                content,
+                similarity_threshold=self.config.standard_similarity_threshold,
+            )
+            slot_mass = alpha * assent
+            q = 1.0 - slot_mass.sum()
+            if self.condition == "geometric_chevron_coupled_write":
+                write_assent = assent
+            else:
+                write_assent = geometric_cosine_assent(
+                    observation.evidence,
+                    content,
+                    similarity_threshold=self.config.standard_similarity_threshold,
+                    threshold_margin=self.config.write_threshold_margin,
+                )
             should_candidate = bool(
                 q.detach() > self.config.null_threshold
                 and slot_mass.max().detach() < self.config.admitted_threshold
@@ -540,7 +582,10 @@ class RewardMemoryAgent:
         self.metrics.write_gate_sum += float((alpha[selected] * trace.write_assent[selected]).detach())
         self.metrics.gate_observations += 1
         if trace.should_candidate:
-            if self.condition == "chevron_immediate":
+            if self.condition in {
+                "chevron_immediate",
+                "geometric_chevron_immediate",
+            }:
                 pending.immediate_slot = self._allocate(
                     observation,
                     F.one_hot(

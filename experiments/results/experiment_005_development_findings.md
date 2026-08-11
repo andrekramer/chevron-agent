@@ -95,3 +95,13 @@ exposes stable context structure independently of sparse task reward.
 
 Any such work should be treated as a new hypothesis. The present experiment
 has completed its intended go/no-go decision.
+
+## Subsequent geometric isolation
+
+Experiment 005a subsequently held the gate formula fixed but removed the
+reward-trained projections. Parameter-free cosine mismatch passed its
+100-lifetime fresh-seed confirmation, including strong buffering and
+write-protection ablations. This does not reverse Experiment 005's negative
+learning result. It localises it: the current gate and buffer are viable when
+the comparison geometry is informative, while learning that geometry from
+sparse reward remains unsuccessful.

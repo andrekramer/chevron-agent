@@ -114,3 +114,34 @@ See the [protocol](experiments/experiment_005_protocol.md),
 [development findings](experiments/results/experiment_005_development_findings.md),
 [development report](experiments/results/experiment_005_development_report.md),
 and [raw results](experiments/results/experiment_005_development_results.json).
+
+## Experiment 005a: geometric gate isolation
+
+Experiment 005a removes the unsuccessful reward-trained A/N projections while
+retaining per-slot Chevron assent, residual mass, provisional storage, and
+separate write permission. Its parameter-free half-cosine mismatch uses the
+already-frozen content threshold and is evaluated without additional training.
+
+Run the frozen development-lifetime diagnostic:
+
+```bash
+python -m experiments.experiment_005a_geometric_gate
+```
+
+Run the predeclared 100-lifetime fresh-seed confirmation:
+
+```bash
+python -m experiments.experiment_005a_geometric_gate --fresh-confirmation
+```
+
+All confirmation criteria passed. Buffered geometric Chevron reached 0.972
+old-context accuracy and 0.896 novel-context accuracy, promoted 3.92 of four
+novel contexts, and made no premature writes. Immediate writing reached only
+0.352 novel accuracy and made premature writes on 8.56% of decisions. The
+result localises the learned experiments' failure to comparison geometry rather
+than the gate or buffer dynamics.
+
+See the [protocol and outcome](experiments/experiment_005a_protocol.md),
+[findings](experiments/results/experiment_005a_findings.md),
+[diagnostic report](experiments/results/experiment_005a_geometric_report.md),
+and [fresh-seed confirmation report](experiments/results/experiment_005a_confirmation_report.md).
