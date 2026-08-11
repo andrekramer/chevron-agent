@@ -1,0 +1,99 @@
+Chevron Agent: What Seven Experiments Have Taught Us
+
+An interim report
+
+The aim of Chevron Agent is to build an agent that can adapt without casually overwriting what it has already learned.
+
+The proposed architecture separates two questions that ordinary attention tends to combine. Retrieval asks, “Which memory appears relevant?” Assent asks, “Should that memory be trusted here?” Evidence that is retrieved but not accepted becomes explicit residual mass. Instead of being discarded or written immediately into long-term memory, it can enter a small provisional buffer while the agent waits for consequences.
+
+This is inspired by the stability–plasticity problem and the vigilance and reset ideas in Adaptive Resonance Theory, rebuilt inside a small differentiable attention-like architecture.
+
+We have now completed seven compact experiments. They do not demonstrate a general agent or a persistent artificial self. They do give us a much clearer account of which parts of the proposal work and which part remains unsolved.
+
+The experiments in one line each
+
+Experiment 1 — Causal factorisation
+
+With retrieval held fixed, independent A/N assent distinguished a compatible memory from an incompatible one; ordinary attention and a second retrieval computation could not. This established that retrieval and assent are mathematically and causally different operations.
+
+Experiment 2 — Learned assent
+
+A small supervised Chevron gate learned to accept familiar content and reject “none of the above” cases, reaching 91.5% held-out accuracy against 33.5% for the parameter-matched retrieval-twice control. Assent was learnable when given direct compatibility evidence.
+
+Experiment 3 — The provisional buffer
+
+In a delayed-outcome task, Chevron retained all eight established categories and learned all four new ones without premature writes. Putting candidates directly into retained memory caused repeated overwrites, while a buffer only one or two entries deep was enough to protect established knowledge.
+
+Experiment 4 — Learning from delayed reward
+
+The first reinforcement-learning bridge was less successful. The buffer prevented premature writes, but sparse delayed reward did not teach the assent gate a sufficiently useful mismatch signal. Increasing buffer capacity did not solve the problem.
+
+Experiment 5 — Retrospective reward
+
+Training assent retrospectively when the delayed outcome arrived also failed to produce a well-calibrated gate. A fixed content-based controller could solve the task, showing that the environment and memory capacity were not the main limitations.
+
+Experiment 5a — Isolating the gate
+
+This was the decisive positive result. We removed the unsuccessful learned projections and supplied a meaningful fixed cosine geometry while leaving the Chevron gate, residual mass and buffer intact. Across 100 fresh lifetimes, Chevron retained 97.2% old-context accuracy, reached 89.6% novel-context accuracy, promoted 3.92 of four new contexts and made no premature writes. Immediate writing reached only 35.2% novel accuracy. This localised the problem: the gate and buffer work when the comparison geometry is meaningful.
+
+Experiment 6 — Learning geometry from temporal similarity
+
+A compact contrastive encoder reconstructed much of a hidden latent geometry without category, reward or compatibility labels. It raised geometry correlation from 0.453 to 0.784 and Chevron return from 0.346 to 0.732. That was encouraging, but it missed the frozen confirmation criteria, and automatic gate calibration did not close the gap.
+
+Experiment 7 — Learning geometry by predicting action-conditioned transitions
+
+The forward model successfully predicted next states, producing a strong 0.643 separation between true and permuted next embeddings. Yet its representation was less useful for Chevron than the simpler temporal encoder: return fell from 0.738 to 0.700 and novel-context accuracy from 0.753 to 0.632. Predicting what comes next did not necessarily organise states according to whether the same memory or policy should be trusted.
+
+The broad result
+
+The strongest result is not that Chevron Agent has solved agency. It is that the experiments have isolated a specific and testable architectural result.
+
+Retrieval and assent can be separated. Rejected retrieval mass can be represented explicitly. A small provisional buffer can prevent unresolved experience from immediately altering established memory. When the assent comparison is made in a behaviourally meaningful geometry, these components combine strong retention with successful acquisition of new contexts.
+
+The present bottleneck is not the sigmoid gate, its threshold or the size of the buffer. It is learning what compatibility should mean.
+
+That distinction matters. Experiment 7 shows that a representation may be excellent for prediction while still being poor for judgement. Two states can be easy to predict in the same coordinate system without being equivalent for action. Chevron needs a geometry of consequences: are the same actions available, do they lead to similar outcomes, and should the same retained policy apply?
+
+What we can claim
+
+On a compact delayed-context task, a parameter-free Chevron assent gate operating in a meaningful cosine geometry combined high retention with reliable acquisition. Its provisional buffer decisively outperformed immediate writing across 100 fresh lifetimes, while separate write permission provided a smaller additional protection benefit.
+
+This remains a synthetic result. The observations are compact, the action space is small, rewards are deterministic and the successful comparison geometry was supplied rather than learned. We have not yet demonstrated visual learning, spatial agency, a stable personality or a persistent core self.
+
+What comes next
+
+The next experiment should leave the confirmed Chevron gate and buffer alone. It should instead learn a consequence- or affordance-based representation: two situations should be close when the available actions lead to similar rewards and similar future distributions, and far apart when their consequences differ.
+
+If that representation recovers the confirmed geometric result, the project will be ready for a small spatial world involving traps, shortcuts and changing conditions. Such a world would let the internal metrics become visible behaviour: an agent cautiously withholding assent, preserving an established preference, discovering an exception and eventually consolidating it.
+
+That would still be a long way from a general agent. But the path is now narrower and more empirical than when we began. The immediate question is no longer whether a system should separate retrieval from assent. It is whether it can learn, from experience, what deserves assent.
+
+Appendix: The mathematical implementation used here
+
+The experiments did not replace the general Chevron Attention equations. They fixed several choices that had previously been left open.
+
+Retrieval produced a distribution alpha over established memories using broad address information. In these compact tasks the address families were supplied rather than learned through Q and K projections. Assent then compared current diagnostic evidence A with the retained content N_j of each retrieved slot.
+
+The successful geometric experiment used normalised half-cosine mismatch:
+
+M_j = 0.5 × (1 − cosine(A, N_j))
+
+Read assent was:
+
+r_read_j = sigmoid(40 × (0.19 − M_j))
+
+The admitted mass for a slot and the total unresolved mass were:
+
+w_j = alpha_j × r_read_j
+
+q = 1 − sum(w_j)
+
+Write permission used the same comparison but a stricter threshold:
+
+r_write_j = sigmoid(40 × (0.14 − M_j))
+
+This creates a positive safety margin: evidence may influence the present decision without receiving equal permission to revise retained memory. High q, combined with the absence of a strongly admitted established memory, caused the observation to enter provisional storage. Promotion occurred only after delayed evidence supplied sufficient support.
+
+The general specification also defines a per-slot residual, u_j = alpha_j × (1 − r_read_j). This records which retrieved slot rejected the evidence. In the successful experiment, however, allocation was driven by the aggregate q and the provisional buffer stored the observation rather than making additional behavioural use of the complete u vector. These results therefore support explicit unresolved mass and provisional buffering, but do not establish that retaining a full per-slot residual vector is superior to scalar q.
+
+Experiments 6 and 7 did not alter these gate equations. They changed only the representation supplied to the cosine comparison: first a temporal-contrastive encoder, then an action-conditioned predictive encoder. Their shortfall therefore concerns learning a behaviourally meaningful comparison geometry, rather than a further change to the Chevron gate itself.
