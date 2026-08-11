@@ -64,3 +64,53 @@ python -m experiments.experiment_003_delayed_buffer
 See the [frozen protocol](experiments/experiment_003_protocol.md), generated
 [Experiment 003 report](experiments/results/experiment_003_report.md), and
 [raw results](experiments/results/experiment_003_results.json).
+
+## Experiment 004: reward-derived memory
+
+The first RL bridge replaces direct compatibility labels with actions and a
+scalar reward arriving three decisions later. Eight retained context-action
+memories are followed by four nearby novel contexts. It compares conventional
+content attention, a parameter-matched direct MLP, full Chevron buffering,
+immediate writing, and coupled read/write gates.
+
+Run the development configuration:
+
+```bash
+python -m experiments.experiment_004_reward_memory --label development
+```
+
+The development run did not trigger confirmation: Chevron's learned residual
+did not separate unresolved from resolved observations strongly enough, and a
+capacity-four diagnostic showed that buffer size was not the main limitation.
+The separate write gate produced a small exploratory protection benefit, while
+the provisional buffer correctly prevented writes before delayed reward.
+
+See the [protocol](experiments/experiment_004_protocol.md),
+[development findings](experiments/results/experiment_004_development_findings.md),
+[development report](experiments/results/experiment_004_development_report.md),
+and [raw development results](experiments/results/experiment_004_development_results.json).
+
+## Experiment 005: retrospective assent
+
+Experiment 005 keeps the delayed-context task fixed and asks whether reward can
+train assent more directly. When an outcome arrives, a retrospective loss
+scores whether the admitted memory support predicted the selected action's
+success or failure. A projected bilinear slot-or-null attention control replaces
+the underfitting MLP while matching Chevron's 314-parameter budget.
+
+Run the development configuration:
+
+```bash
+python -m experiments.experiment_005_retrospective_assent --label development
+```
+
+The frozen development gate failed, so confirmation was not run. Retrospective
+Chevron was statistically indistinguishable from policy-only Chevron and still
+failed to calibrate q or promote most novel contexts. The fixed content
+controller solved the same task, localising the problem to learned comparison
+from sparse reward rather than memory capacity or task feasibility.
+
+See the [protocol](experiments/experiment_005_protocol.md),
+[development findings](experiments/results/experiment_005_development_findings.md),
+[development report](experiments/results/experiment_005_development_report.md),
+and [raw results](experiments/results/experiment_005_development_results.json).

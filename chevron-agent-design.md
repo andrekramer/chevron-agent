@@ -139,7 +139,8 @@ retrieval != assent != write permission
 ```
 
 Rejected mass is not redistributed among the remaining slots. The residual
-`q_t` is an explicit novelty or unresolved signal.
+`q_t` is an explicit unresolved-evidence signal. Novelty is one possible cause
+of high residual mass, not its definition.
 
 ### 4.4 Actor and critic
 
@@ -156,24 +157,31 @@ system.
 
 ### 4.5 Writes
 
-Established slots use the same local mass that controls their read:
+Safe use does not by itself grant permission to learn. Established slots use
+a separate, stricter write-assent gate:
 
 ```text
-w_tj = alpha_tj * r_tj
+r_write_tj = sigmoid(k_write * (theta_write - M(A_t, N_mem[j])))
+g_write_tj = alpha_tj * r_write_tj * eligibility_tj
+theta_write < theta_read
 ```
+
+When read and write slopes differ, the implementation must additionally
+enforce `r_write_tj <= r_read_tj` over the declared mismatch interval. Reward,
+retrospective outcome, persistence, or provenance may supply eligibility.
 
 A generic retained update is:
 
 ```text
-N_mem[j] <- (1 - eta_N * w_tj) * N_mem[j]
-            + eta_N * w_tj * T_N(A_t)
+N_mem[j] <- (1 - eta_N * g_write_tj) * N_mem[j]
+            + eta_N * g_write_tj * T_N(A_t)
 ```
 
 The address trace may update more quickly:
 
 ```text
-A_mem[j] <- (1 - eta_A * w_tj) * A_mem[j]
-            + eta_A * w_tj * T_A(A_t)
+A_mem[j] <- (1 - eta_A * g_write_tj) * A_mem[j]
+            + eta_A * g_write_tj * T_A(A_t)
 ```
 
 with:
@@ -183,8 +191,9 @@ eta_A > eta_N
 ```
 
 The precise retained update rule is an experimental choice. The architectural
-commitment is that an attended slot does not receive a full write unless it
-also receives assent.
+commitment is that retrieval, read admission, and write permission remain
+distinct, and that rejected evidence cannot drift either the retained content
+or its address.
 
 ### 4.6 Residual and provisional state
 

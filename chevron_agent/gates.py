@@ -186,3 +186,87 @@ class DirectPairMLP(nn.Module):
             slot_mass=probabilities[:, :-1],
             null_mass=probabilities[:, -1],
         )
+
+
+class ProjectedBilinearNullAttention(nn.Module):
+    """Strong conventional slot-or-null attention with an explicit null logit.
+
+    Evidence and retained content are independently projected, normalised, and
+    compared by a dot product.  A single softmax then chooses among all slots
+    and ``none of the above``.  Retrieval and admission are deliberately
+    conflated, making this a conventional control rather than a Chevron gate.
+
+    With 12-dimensional inputs and a 13-dimensional comparison space the two
+    projections, null logit, and temperature contain 314 parameters, matching
+    :class:`ProjectedCosineAssent` exactly.
+    """
+
+    def __init__(
+        self,
+        evidence_dim: int,
+        retained_dim: int,
+        comparison_dim: int,
+        *,
+        initial_temperature: float = 0.20,
+        initial_null_logit: float = 0.0,
+        eps: float = 1e-8,
+    ) -> None:
+        super().__init__()
+        if evidence_dim <= 0 or retained_dim <= 0 or comparison_dim <= 0:
+            raise ValueError("all dimensions must be positive")
+        if initial_temperature <= 0.0:
+            raise ValueError("initial_temperature must be positive")
+        if eps <= 0.0:
+            raise ValueError("eps must be positive")
+        self.evidence_projection = nn.Linear(
+            evidence_dim, comparison_dim, bias=False
+        )
+        self.retained_projection = nn.Linear(
+            retained_dim, comparison_dim, bias=False
+        )
+        self.null_logit = nn.Parameter(torch.tensor(initial_null_logit))
+        self.raw_temperature = nn.Parameter(
+            torch.tensor(_inverse_softplus(initial_temperature))
+        )
+        self.eps = eps
+
+    @property
+    def temperature(self) -> Tensor:
+        return F.softplus(self.raw_temperature) + self.eps
+
+    def forward(
+        self,
+        evidence: Tensor,
+        retained: Tensor,
+        *,
+        retrieval_mass: Tensor | None = None,
+    ) -> DirectDecisionOutput:
+        if evidence.ndim != 2:
+            raise ValueError("evidence must be [batch, dim]")
+        if retained.ndim == 2:
+            retained = retained.unsqueeze(1)
+        if retained.ndim != 3 or retained.shape[0] != evidence.shape[0]:
+            raise ValueError("retained must be [batch, slots, dim]")
+
+        query = F.normalize(
+            self.evidence_projection(evidence), dim=-1, eps=self.eps
+        )
+        keys = F.normalize(
+            self.retained_projection(retained), dim=-1, eps=self.eps
+        )
+        slot_logits = torch.einsum("bd,bsd->bs", query, keys) / self.temperature
+        if retrieval_mass is not None:
+            if retrieval_mass.shape != slot_logits.shape:
+                raise ValueError("retrieval_mass must be [batch, slots]")
+            slot_logits = slot_logits + torch.log(
+                retrieval_mass.clamp_min(self.eps)
+            )
+        null_logits = self.null_logit.expand(evidence.shape[0], 1)
+        logits = torch.cat((slot_logits, null_logits), dim=-1)
+        probabilities = torch.softmax(logits, dim=-1)
+        return DirectDecisionOutput(
+            logits=logits,
+            probabilities=probabilities,
+            slot_mass=probabilities[:, :-1],
+            null_mass=probabilities[:, -1],
+        )

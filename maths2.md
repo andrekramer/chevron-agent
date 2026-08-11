@@ -213,12 +213,18 @@ k_w(\theta_w-M_{tj})
 \qquad k_w>0.
 $$
 
-If the read and write gates use the same mismatch scale, stricter write
-permission means:
+If the read and write gates use the same mismatch scale and slope, stricter
+write permission means:
 
 $$
 \theta_w<\theta_r.
 $$
+
+If $k_w$ and $k_r$ differ, the threshold inequality alone is not sufficient
+to guarantee a pointwise stricter write gate. The implementation must either
+share the slope, constrain both parameter pairs so that
+$r^{\mathrm{write}}_{tj}\le r^{\mathrm{read}}_{tj}$ throughout the bounded
+mismatch interval, or explicitly clamp write assent to read assent.
 
 An optional eligibility term $e_{tj}\in[0,1]$ can represent persistence,
 provenance, retrospective outcome agreement, or whether the observation adds

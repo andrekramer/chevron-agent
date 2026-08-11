@@ -4,7 +4,11 @@ import unittest
 
 import torch
 
-from chevron_agent import DirectPairMLP, ProjectedCosineAssent
+from chevron_agent import (
+    DirectPairMLP,
+    ProjectedBilinearNullAttention,
+    ProjectedCosineAssent,
+)
 
 
 class ProjectedCosineAssentTests(unittest.TestCase):
@@ -63,6 +67,43 @@ class DirectPairMLPTests(unittest.TestCase):
             torch.allclose(output.probabilities.sum(dim=-1), torch.ones(3))
         )
         self.assertTrue(torch.all((output.null_mass >= 0) & (output.null_mass <= 1)))
+
+
+class ProjectedBilinearNullAttentionTests(unittest.TestCase):
+    def test_parameter_budget_matches_chevron_gate(self) -> None:
+        chevron = ProjectedCosineAssent(12, 12, 13)
+        control = ProjectedBilinearNullAttention(12, 12, 13)
+        self.assertEqual(sum(p.numel() for p in control.parameters()), 314)
+        self.assertEqual(
+            sum(p.numel() for p in control.parameters()),
+            sum(p.numel() for p in chevron.parameters()),
+        )
+
+    def test_probabilities_conserve_mass_and_respect_retrieval_mask(self) -> None:
+        model = ProjectedBilinearNullAttention(5, 5, 7)
+        evidence = torch.randn(3, 5)
+        retained = torch.randn(3, 4, 5)
+        retrieval = torch.tensor(
+            [[0.5, 0.5, 0.0, 0.0], [0.0, 0.5, 0.5, 0.0], [0.0, 0.0, 0.5, 0.5]]
+        )
+        output = model(evidence, retained, retrieval_mass=retrieval)
+        self.assertEqual(output.logits.shape, (3, 5))
+        torch.testing.assert_close(
+            output.probabilities.sum(dim=-1), torch.ones(3)
+        )
+        self.assertTrue(torch.all(output.slot_mass[retrieval == 0] < 1e-6).item())
+        self.assertGreater(model.temperature.item(), 0.0)
+
+    def test_gradients_reach_both_projection_paths(self) -> None:
+        model = ProjectedBilinearNullAttention(4, 4, 5)
+        evidence = torch.randn(2, 4, requires_grad=True)
+        retained = torch.randn(2, 3, 4, requires_grad=True)
+        output = model(evidence, retained)
+        output.logits.square().mean().backward()
+        self.assertIsNotNone(model.evidence_projection.weight.grad)
+        self.assertIsNotNone(model.retained_projection.weight.grad)
+        self.assertTrue(torch.isfinite(evidence.grad).all().item())
+        self.assertTrue(torch.isfinite(retained.grad).all().item())
 
 
 if __name__ == "__main__":

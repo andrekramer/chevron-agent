@@ -12,6 +12,7 @@ from .gates import (
     AssentGateOutput,
     DirectDecisionOutput,
     DirectPairMLP,
+    ProjectedBilinearNullAttention,
     ProjectedCosineAssent,
 )
 
@@ -25,6 +26,7 @@ __all__ = [
     "ProjectedCosineAssent",
     "DirectDecisionOutput",
     "DirectPairMLP",
+    "ProjectedBilinearNullAttention",
     "BoundedProvisionalBuffer",
     "ProvisionalEntry",
 ]
