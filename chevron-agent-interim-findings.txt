@@ -44,6 +44,10 @@ Experiment 7 — Learning geometry by predicting action-conditioned transitions
 
 The forward model successfully predicted next states, producing a strong 0.643 separation between true and permuted next embeddings. Yet its representation was less useful for Chevron than the simpler temporal encoder: return fell from 0.738 to 0.700 and novel-context accuracy from 0.753 to 0.632. Predicting what comes next did not necessarily organise states according to whether the same memory or policy should be trusted.
 
+Experiment 8 — Consequence similarity is not memory identity
+
+A dense consequence objective raised consequence-geometry correlation from 0.107 to 0.488, but Chevron return reached only 0.611, below 0.699 for temporal geometry. More decisively, supplying the exact consequence signature directly to the gate still produced only 0.494 return. Distinct memories can have similar affordances, while noise can alter an outcome profile without changing the situation’s identity. Consequence similarity therefore could not safely serve as the single geometry for both recognising a memory and deciding whether its policy should be trusted.
+
 The later experiments first established an important distinction. Memory identity asks whether this is the same kind of situation. Policy compatibility asks whether the retained response is still appropriate. A changed policy should not automatically create a new identity, and a genuinely new identity should not be treated merely as a policy reversal. The architecture therefore retained separate identity and policy residuals, with typed provisional candidates and different consolidation destinations.
 
 Experiment 9a — Separate queues or more capacity?
