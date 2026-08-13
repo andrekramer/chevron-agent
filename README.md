@@ -5,7 +5,9 @@ and slower retained (N) channels.
 
 See [chevron-agent-design.md](chevron-agent-design.md) for the initial architecture and experimental plan.
 
-The current mathematical specification is [maths2.md](maths2.md).
+The current mathematical and architectural checkpoint is [math3.md](math3.md).
+The earlier [maths2.md](maths2.md) is retained as the pre-dual-relation
+specification.
 
 ## Experiment 001: causal factorisation
 
