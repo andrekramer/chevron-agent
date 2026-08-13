@@ -1,4 +1,4 @@
-Chevron Agent: What Seven Experiments Have Taught Us
+Chevron Agent: Interim Findings
 
 An interim report
 
@@ -8,7 +8,7 @@ The proposed architecture separates two questions that ordinary attention tends 
 
 This is inspired by the stability–plasticity problem and the vigilance and reset ideas in Adaptive Resonance Theory, rebuilt inside a small differentiable attention-like architecture.
 
-We have now completed seven compact experiments. They do not demonstrate a general agent or a persistent artificial self. They do give us a much clearer account of which parts of the proposal work and which part remains unsolved.
+The initial report covered seven compact experiments. The two latest experiments add a useful architectural result. They do not demonstrate a general agent or a persistent artificial self, but they clarify how more than one kind of unresolved evidence should be handled.
 
 The experiments in one line each
 
@@ -44,13 +44,39 @@ Experiment 7 — Learning geometry by predicting action-conditioned transitions
 
 The forward model successfully predicted next states, producing a strong 0.643 separation between true and permuted next embeddings. Yet its representation was less useful for Chevron than the simpler temporal encoder: return fell from 0.738 to 0.700 and novel-context accuracy from 0.753 to 0.632. Predicting what comes next did not necessarily organise states according to whether the same memory or policy should be trusted.
 
+The later experiments first established an important distinction. Memory identity asks whether this is the same kind of situation. Policy compatibility asks whether the retained response is still appropriate. A changed policy should not automatically create a new identity, and a genuinely new identity should not be treated merely as a policy reversal. The architecture therefore retained separate identity and policy residuals, with typed provisional candidates and different consolidation destinations.
+
+Experiment 9a — Separate queues or more capacity?
+
+Novel-identity candidates and policy-revision candidates were tested in either one shared buffer or two fixed queues. Separate queues did not help. At equal total capacity, a split 4+4 layout matched rather than beat a shared eight-entry bank and produced slightly more evictions. The important change was capacity: increasing the shared bank from four to eight entries raised return from 0.587 to 0.725 and novel accuracy from 0.598 to 0.864. The architectural lesson was to keep candidate types distinct while allowing them to share flexible provisional capacity.
+
+Experiment 9b — Fresh-seed capacity confirmation
+
+The shared-capacity result passed every predeclared criterion across 100 untouched lifetimes. Shared 8 improved return over Shared 4 by 0.156, reversed-context accuracy by 0.164 and novel-context accuracy by 0.278, while reducing evictions by 76.7%. It made no premature writes, established-memory overwrites or duplicate identities. It was also non-inferior overall to rapid identity-only adaptation: slightly slower on deterministic reversals, but significantly better at acquiring novel identities.
+
+Architecture update
+
+The resulting design does not use two rigid provisional queues. It uses:
+
+separate identity and policy residuals;
+
+typed candidates that remember why they were deferred;
+
+different consolidation destinations for new identities and revised policies;
+
+one flexible shared provisional bank; and
+
+enough effective capacity for the combined unresolved traffic.
+
+Eight entries is not proposed as a universal constant. It was the confirmed capacity for this compact workload. In a larger agent, effective capacity might respond to sustained residual mass, occupancy or eviction pressure.
+
 The broad result
 
 The strongest result is not that Chevron Agent has solved agency. It is that the experiments have isolated a specific and testable architectural result.
 
 Retrieval and assent can be separated. Rejected retrieval mass can be represented explicitly. A small provisional buffer can prevent unresolved experience from immediately altering established memory. When the assent comparison is made in a behaviourally meaningful geometry, these components combine strong retention with successful acquisition of new contexts.
 
-The present bottleneck is not the sigmoid gate, its threshold or the size of the buffer. It is learning what compatibility should mean.
+In the original single-residual task, the bottleneck was not the sigmoid gate, its threshold or buffer size; it was learning what compatibility should mean. The later dual-residual task adds a qualification: once identity novelty and policy revision arrive together, provisional capacity must be sufficient for their combined traffic.
 
 That distinction matters. Experiment 7 shows that a representation may be excellent for prediction while still being poor for judgement. Two states can be easy to predict in the same coordinate system without being equivalent for action. Chevron needs a geometry of consequences: are the same actions available, do they lead to similar outcomes, and should the same retained policy apply?
 
@@ -58,13 +84,15 @@ What we can claim
 
 On a compact delayed-context task, a parameter-free Chevron assent gate operating in a meaningful cosine geometry combined high retention with reliable acquisition. Its provisional buffer decisively outperformed immediate writing across 100 fresh lifetimes, while separate write permission provided a smaller additional protection benefit.
 
+On the later combined novelty-and-reversal task, separate identity and policy residuals with a typed shared provisional bank preserved stable knowledge, revised familiar policies and acquired new identities without premature writes or duplicate memories. Adequate shared capacity decisively outperformed an undersized bank across 100 untouched lifetimes and was non-inferior overall to rapid identity-only value adaptation.
+
 This remains a synthetic result. The observations are compact, the action space is small, rewards are deterministic and the successful comparison geometry was supplied rather than learned. We have not yet demonstrated visual learning, spatial agency, a stable personality or a persistent core self.
 
 What comes next
 
-The next experiment should leave the confirmed Chevron gate and buffer alone. It should instead learn a consequence- or affordance-based representation: two situations should be close when the available actions lead to similar rewards and similar future distributions, and far apart when their consequences differ.
+The next experiment should retain the confirmed typed shared bank and learn the two relations separately. Persistence or temporal identity should answer whether the current situation belongs to an existing memory. Sampled consequences should answer whether the retained policy remains appropriate. Experiment 8 showed that consequence similarity alone cannot safely perform both jobs.
 
-If that representation recovers the confirmed geometric result, the project will be ready for a small spatial world involving traps, shortcuts and changing conditions. Such a world would let the internal metrics become visible behaviour: an agent cautiously withholding assent, preserving an established preference, discovering an exception and eventually consolidating it.
+If those learned relations recover the fixed-geometry result, the project will be ready for a small spatial world involving traps, shortcuts and changing conditions. Such a world would let the internal metrics become visible behaviour: an agent cautiously withholding assent, preserving an established preference, discovering an exception and eventually consolidating it.
 
 That would still be a long way from a general agent. But the path is now narrower and more empirical than when we began. The immediate question is no longer whether a system should separate retrieval from assent. It is whether it can learn, from experience, what deserves assent.
 
@@ -97,6 +125,8 @@ This creates a positive safety margin: evidence may influence the present decisi
 The general specification also defines a per-slot residual, u_j = alpha_j × (1 − r_read_j). This records which retrieved slot rejected the evidence. In the successful experiment, however, allocation was driven by the aggregate q and the provisional buffer stored the observation rather than making additional behavioural use of the complete u vector. These results therefore support explicit unresolved mass and provisional buffering, but do not establish that retaining a full per-slot residual vector is superior to scalar q.
 
 Experiments 6 and 7 did not alter these gate equations. They changed only the representation supplied to the cosine comparison: first a temporal-contrastive encoder, then an action-conditioned predictive encoder. Their shortfall therefore concerns learning a behaviourally meaningful comparison geometry, rather than a further change to the Chevron gate itself.
+
+The later dual-relation experiments introduced a second assent question rather than changing the original sigmoid form. Identity assent produced q_identity for new-memory allocation. Conditional policy assent produced q_policy for vetoing or revising the policy of an already recognised memory. Both kinds of rejected evidence entered one typed provisional bank. The confirmed implementation increased that bank from four to eight entries for the combined workload; it did not change the read threshold, gate slope or delayed support requirement.
 
 A note on cosine, phase and the R-rule
 
