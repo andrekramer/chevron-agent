@@ -97,3 +97,19 @@ This creates a positive safety margin: evidence may influence the present decisi
 The general specification also defines a per-slot residual, u_j = alpha_j × (1 − r_read_j). This records which retrieved slot rejected the evidence. In the successful experiment, however, allocation was driven by the aggregate q and the provisional buffer stored the observation rather than making additional behavioural use of the complete u vector. These results therefore support explicit unresolved mass and provisional buffering, but do not establish that retaining a full per-slot residual vector is superior to scalar q.
 
 Experiments 6 and 7 did not alter these gate equations. They changed only the representation supplied to the cosine comparison: first a temporal-contrastive encoder, then an action-conditioned predictive encoder. Their shortfall therefore concerns learning a behaviourally meaningful comparison geometry, rather than a further change to the Chevron gate itself.
+
+A note on cosine, phase and the R-rule
+
+The use of cosine also creates a geometric connection with the earlier R-rule intuition. For normalised A and N vectors, let phi be the angle between them:
+
+cos(phi) = A dot N
+
+The half-cosine mismatch can then be rewritten using the half-angle identity:
+
+M = 0.5 × (1 − cos(phi)) = sin²(phi / 2)
+
+This gives the gate a simple phase-like interpretation. When A and N point in the same direction, phi is zero, mismatch is zero and assent is strong. At right angles, mismatch is 0.5. When they point in opposing directions, mismatch reaches one and the retained interpretation is strongly rejected.
+
+Under the fixed thresholds used in Experiment 5a, the read boundary M = 0.19 corresponds to an angular separation of approximately 52 degrees. The stricter write boundary M = 0.14 corresponds to approximately 44 degrees. A memory may therefore be sufficiently aligned to influence the current action while still not being sufficiently aligned to revise N.
+
+This resembles the trigonometric language of the R-rule, but the roles should not be conflated. In the R-rule, phase controls the complementary participation of A and N. In the present Chevron gate, relative angle measures representational agreement between them. A future formulation might relate participation phase to agreement phase, but the current experiments establish only the vector-geometric interpretation. They are not evidence that A and N implement biological oscillatory phase.
