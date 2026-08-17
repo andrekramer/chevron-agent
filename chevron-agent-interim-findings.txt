@@ -66,6 +66,14 @@ Experiment 10a — Assent again before consolidation
 
 The promotion-time recheck passed every frozen criterion on 100 untouched lifetimes. The original path created one duplicate; the corrected path reconciled that candidate with established memory and created none. Return changed by less than 0.0001, retention was unchanged within 0.0002, and reversed and novel probes were identical. Novelty is therefore provisional twice: evidence may enter the buffer as unresolved, but it must still be novel after accumulation before it can alter permanent memory.
 
+Experiment 11 — Learn identity from temporal persistence
+
+A tiny residual encoder trained without task labels, actions, rewards or policies repaired a badly distorted sensor geometry. Confusable-change rejection rose from 16.1% to about 82-83%, and learned Chevron improved return from 0.331 to as much as 0.491 while preserving every tested memory-protection invariant. The proposed four-view hard-negative curriculum did not beat simple pairwise temporal contrastive learning, so its frozen confirmation was not triggered. The simpler pairwise learner is now the candidate for a narrow fresh-seed confirmation.
+
+Experiment 11a — Fresh-seed confirmation of learned identity
+
+The simple pairwise temporal encoder passed all twenty-two frozen criteria across ten new encoder seeds and 200 untouched paired lifetimes. Learned Chevron improved return over the distorted raw sensor by 0.121 and novel probes by 0.625, retained 92.6% stable accuracy and made no duplicate identity, established overwrite or under-supported write. Direct adaptation remained faster, but protected Chevron finished with a 0.104 higher novel-memory probe. Identity assent can therefore be learned from temporal pairing on this task; it no longer has to be supplied as an oracle geometry.
+
 Architecture update
 
 The resulting design does not use two rigid provisional queues. It uses:

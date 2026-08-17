@@ -365,3 +365,64 @@ See the [frozen protocol and outcome](experiments/experiment_010a_protocol.md),
 [findings](experiments/results/experiment_010a_findings.md),
 [report](experiments/results/experiment_010a_report.md), and
 [raw results](experiments/results/experiment_010a_results.json).
+
+## Experiment 011: identity from temporal persistence
+
+Experiment 011 replaces the supplied identity geometry with a small residual
+encoder trained only from temporally paired sensor observations. Actions,
+rewards, task identities, and policies are excluded from representation
+training. The downstream identity threshold, retrospective policy mechanism,
+shared typed bank, and promotion-time revalidation remain frozen.
+
+```bash
+python -m experiments.experiment_011_persistent_identity --mode development
+```
+
+Temporal learning repaired the distorted sensor boundary. The raw sensor
+rejected only 16.1% of confusable identity changes; all three learned encoders
+rejected about 82-83% while continuing to admit more than 98% of repeat views.
+Hard-persistence Chevron improved return over the raw sensor from 0.331 to
+0.470 and novel probes from 0.088 to 0.738 without any duplicate identity,
+established overwrite, or under-supported write.
+
+The proposed extra hard-negative curriculum nevertheless failed its frozen
+gate. It trailed the simpler pairwise temporal encoder, which reached 0.491
+return and 0.863 novel-probe accuracy. Confirmation was not run. The result
+supports learning identity from temporal pairing, but not the additional
+four-view/hard-negative machinery. A narrow fresh-seed confirmation of the
+simpler pairwise learner is the next justified test.
+
+See the [frozen protocol and outcome](experiments/experiment_011_protocol.md),
+[development findings](experiments/results/experiment_011_development_findings.md),
+[development report](experiments/results/experiment_011_development_report.md),
+and [raw development results](experiments/results/experiment_011_development_results.json).
+
+## Experiment 011a: pairwise temporal identity confirmation
+
+Experiment 011a freezes the simplest learned-identity condition from Experiment
+011 and tests it with ten untouched encoder seeds and 200 untouched paired RL
+lifetimes.
+
+```bash
+python -m experiments.experiment_011a_pairwise_confirmation
+```
+
+All twenty-two frozen criteria passed. The learned encoder admitted 98.8% of
+repeat identities and rejected 81.7% of confusable changes at the unchanged
+0.62 boundary. Learned Chevron improved return over the distorted raw sensor by
++0.121 and novel probes by +0.625, with both paired intervals excluding zero.
+
+It retained 0.926 stable accuracy, recovered 3.745 of four policy reversals,
+promoted 3.405 of four novel identities, and made no duplicate identities,
+established overwrites, or under-supported writes. It remained non-inferior to
+both supplied oracle identity and direct value adaptation under the frozen
+margins. Direct adaptation retained higher immediate return, while protected
+Chevron achieved a significantly higher final novel probe.
+
+This confirms temporal pair learning as the current identity representation.
+The harder four-view curriculum remains unsupported.
+
+See the [frozen protocol and outcome](experiments/experiment_011a_protocol.md),
+[confirmation findings](experiments/results/experiment_011a_confirmation_findings.md),
+[confirmation report](experiments/results/experiment_011a_confirmation_report.md),
+and [raw confirmation results](experiments/results/experiment_011a_confirmation_results.json).

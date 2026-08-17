@@ -1,6 +1,6 @@
 # Chevron Agent Mathematics and Architecture, Version 3
 
-Status: architecture checkpoint updated through Experiment 010a.
+Status: architecture checkpoint updated through Experiment 011a.
 
 This document supersedes `maths2.md` as the current working description of
 Chevron Agent. It preserves the original retrieval, assent, residual, and
@@ -19,8 +19,10 @@ retrieve a possible identity
 -> consolidate only after delayed outcome support
 ```
 
-The fixed geometries used in the experiments are an existence proof for the
-mechanism, not yet a learned perceptual solution.
+The fixed geometries used in the earlier experiments are an existence proof
+for the mechanism. Experiment 011a additionally confirms a small identity
+encoder learned from temporal pairs. Policy mismatch is still inferred from
+delayed outcomes rather than learned as a general perceptual geometry.
 
 ## 1. Architectural roles
 
@@ -573,12 +575,20 @@ interventions used in the early experiments.
 - Promotion-time identity revalidation eliminated duplicate allocation in the
   Experiment 010a correction audit while preserving return, retention,
   reversal learning, and novel probes within tight paired bounds.
+- A 12-to-48-to-12 residual identity encoder trained only from temporal pairs
+  passed all frozen Experiment 011a criteria across ten new encoder seeds and
+  200 untouched paired lifetimes. It improved return over the distorted raw
+  sensor by 0.121 and novel probes by 0.625 without duplicate identities,
+  established overwrites, or under-supported writes.
 
 ### Supported only as a development finding
 
 - Separate identity and policy relations beat the collapsed relation and
   avoided its duplicate identities. Experiment 009 did not trigger its planned
   confirmation because the original capacity-four bank was overloaded.
+- Experiment 011's four-view hard-persistence curriculum did not outperform
+  simple temporal pairing. It remains a negative development result; only the
+  separately frozen pairwise learner was confirmed in Experiment 011a.
 
 ### Fresh-seed evidence with a failed overall confirmation
 
@@ -600,8 +610,10 @@ interventions used in the early experiments.
 
 - Sparse reward did not learn the required comparison geometry in the first RL
   attempts.
-- Temporal and action-predictive encoders improved geometry but did not meet
-  every frozen criterion.
+- The earlier Experiment 006 temporal encoder and Experiment 007
+  action-predictive encoder improved geometry but did not meet every frozen
+  criterion. Experiment 011a later confirmed a simpler residual pairwise
+  temporal encoder under the corrected downstream architecture.
 - Consequence geometry did not outperform temporal geometry and could not
   safely serve as identity by itself.
 - Fixed split identity/policy queues did not improve a capacity-matched shared
@@ -613,12 +625,12 @@ interventions used in the early experiments.
 
 The strongest justified claim is narrow but useful:
 
-> Under supplied meaningful identity and policy geometries, a Chevron agent can
-> separate retrieval from assent, distinguish novel identities from invalid
-> policies, hold both as typed unresolved evidence, and consolidate them to
-> different destinations without premature writes or duplicate memories. A
-> shared provisional bank must have enough capacity for the combined unresolved
-> traffic.
+> With identity assent learned from temporal pairs and policy mismatch inferred
+> from delayed outcomes, a Chevron agent can separate retrieval from assent,
+> distinguish novel identities from invalid policies, hold both as typed
+> unresolved evidence, and consolidate them to different destinations without
+> premature writes or duplicate memories. A shared provisional bank must have
+> enough capacity for the combined unresolved traffic.
 
 This does not yet show a general agent or a coherently evolving self. It gives a
 testable memory primitive for one: current experience can remain plastic while
@@ -627,16 +639,37 @@ only through delayed evidence.
 
 ## 15. Next mathematical step
 
-The next representation-learning experiment should keep promotion-time
-identity revalidation, the two-residual typed bank, and protected consolidation
-fixed while learning the two comparison spaces from different evidence:
+Identity learning is now fixed provisionally as:
 
 ```text
-identity geometry <- persistence, recurrence, and temporal continuity
-policy geometry   <- action-conditioned outcomes and retrospective value
+z_t = normalise(x_t + MLP(x_t))
+
+L_id = symmetric contrastive loss(
+    z_t from one persistent event,
+    z_t' from another view of that event
+)
+```
+
+The pair relation is supplied by temporal persistence, not by the downstream
+task identity. Identity assent then uses the already fixed cosine comparison:
+
+```text
+r_id_j = sigmoid(40 * (cosine(z_t, N_j^id) - 0.62))
+```
+
+The next experiment should keep this learned identity path,
+promotion-time revalidation, the two-residual typed bank, and protected
+consolidation fixed while moving into a small partially observable visual or
+spatial task. Policy mismatch can initially remain retrospective:
+
+```text
+identity geometry <- temporal pairing
+policy suspicion  <- delayed action outcome and retrospective value
 ```
 
 Success requires more than return. It should preserve the conservation and
 protection invariants, calibrate both residuals, avoid duplicate identities,
-acquire novel contexts, revise familiar policies, and pass causal tests showing
-that identity assent and policy assent have not collapsed into retrieval twice.
+acquire novel places, revise familiar policies, and make the trade visible as
+behaviour such as trap avoidance or adaptation to a changed route. It should
+also compare against direct adaptation and a standard recurrent or attention
+memory with matched representation and buffer capacity.
