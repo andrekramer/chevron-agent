@@ -534,6 +534,69 @@ original path created one duplicate identity; promotion-time revalidation
 intercepted exactly that candidate and produced zero duplicates without a
 measurable performance cost.
 
+### Development-only maturity and eviction permission
+
+Experiment 012 showed that empty-memory routing can construct a useful core,
+but a self-created slot did not automatically inherit the protection of a slot
+installed as established. Experiment 012a tested a provisional maturity rule.
+
+For an admitted observation whose delayed outcome is positive, define the
+successful-use event for slot `j`:
+
+```text
+s_tj = I[target_memory_t = j]
+       * I[max(w_id_t) >= tau_admit]
+       * I[y_t = 1]
+```
+
+where `y_t = 1` means the delayed observed reward was positive and
+`tau_admit = 0.25` in the experiment. Post-promotion support accumulates as:
+
+```text
+h_j(t + 1) = h_j(t) + s_tj
+h_j(at promotion) = 0
+```
+
+The tested binary maturity state was:
+
+```text
+m_j = I[h_j >= H]
+H = 4 successful admitted uses
+```
+
+Maturity belongs to identity memory, not to its current policy. A later policy
+failure or reversal therefore does not set `m_j` back to zero.
+
+Eviction eligibility is distinct from allocation permission:
+
+```text
+e_evict_j = 1 - m_j
+E = {j : e_evict_j = 1}
+```
+
+At full permanent capacity, the tested allocator used:
+
+```text
+if E is non-empty:
+    replace the least-recently-used slot in E
+else:
+    do not mutate N
+    return the supported candidate to provisional storage
+```
+
+This suggests two candidate protection invariants beyond the confirmed suite:
+
+14. Ordinary allocation cannot evict a mature slot without explicit forgetting
+    permission.
+15. If no slot has eviction permission, rejected allocation remains accounted
+    for as provisional or deferred evidence rather than disappearing.
+
+These are not yet confirmed invariants. Across twenty Experiment 012a
+development lifetimes, the rule reduced observed self-created core-slot loss
+from 0.30 per lifetime to zero without reducing post-shift return, retention,
+or novel probes. The experiment nevertheless failed four broader frozen
+criteria and did not proceed to confirmation.
+
 ## 12. Gradient boundaries for a learned agent
 
 Experiments 005a and 009b used fixed geometry, so no gradient crossed memory
