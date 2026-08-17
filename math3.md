@@ -1,6 +1,6 @@
 # Chevron Agent Mathematics and Architecture, Version 3
 
-Status: architecture checkpoint updated through Experiment 011a.
+Status: architecture checkpoint updated through Experiment 012a development.
 
 This document supersedes `maths2.md` as the current working description of
 Chevron Agent. It preserves the original retrieval, assent, residual, and
@@ -589,6 +589,14 @@ interventions used in the early experiments.
 - Experiment 011's four-view hard-persistence curriculum did not outperform
   simple temporal pairing. It remains a negative development result; only the
   separately frozen pairwise learner was confirmed in Experiment 011a.
+- With empty permanent memory, Experiment 012 learned 7.5 of eight initial
+  identities, reached a 0.900 core-policy probe, and later retained 0.921
+  stable accuracy. It decisively beat raw-sensor cold start but failed three
+  return non-inferiority criteria, so confirmation was not triggered.
+- Experiment 012a added use-derived slot maturity. It eliminated all observed
+  core-slot loss while matching the unprotected allocator's post-shift return,
+  retention, and novel probes. The broad gate failed four criteria, so maturity
+  remains a development result rather than a confirmed component.
 
 ### Fresh-seed evidence with a failed overall confirmation
 
@@ -618,6 +626,10 @@ interventions used in the early experiments.
   safely serve as identity by itself.
 - Fixed split identity/policy queues did not improve a capacity-matched shared
   bank.
+- Experiment 012 found that a self-created core is not yet protected as
+  strongly as a preloaded established core. Five core memory ids were lost
+  across three of twenty development lifetimes after learned-geometry false
+  splits exhausted permanent capacity.
 - The dual architecture has not yet been demonstrated with learned identity
   and policy representations in a visual, spatial, or embodied agent.
 
@@ -625,12 +637,13 @@ interventions used in the early experiments.
 
 The strongest justified claim is narrow but useful:
 
-> With identity assent learned from temporal pairs and policy mismatch inferred
-> from delayed outcomes, a Chevron agent can separate retrieval from assent,
-> distinguish novel identities from invalid policies, hold both as typed
-> unresolved evidence, and consolidate them to different destinations without
-> premature writes or duplicate memories. A shared provisional bank must have
-> enough capacity for the combined unresolved traffic.
+> Once an established memory core exists, identity assent learned from temporal
+> pairs and policy mismatch inferred from delayed outcomes let a Chevron agent
+> separate retrieval from assent, distinguish novel identities from invalid
+> policies, hold both as typed unresolved evidence, and consolidate them to
+> different destinations without premature writes or duplicate memories. A
+> shared provisional bank must have enough capacity for the combined unresolved
+> traffic.
 
 This does not yet show a general agent or a coherently evolving self. It gives a
 testable memory primitive for one: current experience can remain plastic while
@@ -657,10 +670,28 @@ task identity. Identity assent then uses the already fixed cosine comparison:
 r_id_j = sigmoid(40 * (cosine(z_t, N_j^id) - 0.62))
 ```
 
-The next experiment should keep this learned identity path,
-promotion-time revalidation, the two-residual typed bank, and protected
-consolidation fixed while moving into a small partially observable visual or
-spatial task. Policy mismatch can initially remain retrospective:
+Experiment 012a tested one initial form of maturity and forgetting permission
+for self-created permanent slots.
+
+A newly promoted slot may begin with low maturity. Repeated successful,
+assented use can increase its maturity. Allocation pressure must then answer a
+separate question:
+
+```text
+permission to allocate new N
+!=
+permission to evict existing N_j
+```
+
+In the tested development rule, four successful assented uses made a slot
+mature. Mature slots received no eviction permission. If every slot was mature,
+supported unresolved evidence returned to provisional storage rather than
+silently replacing permanent memory. This eliminated observed core loss without
+reducing baseline novelty or post-shift return, but did not pass every frozen
+criterion and is not yet part of the confirmed architecture.
+
+After that protection survives cold start, a small partially observable visual
+or spatial task can retain the same division:
 
 ```text
 identity geometry <- temporal pairing

@@ -426,3 +426,62 @@ See the [frozen protocol and outcome](experiments/experiment_011a_protocol.md),
 [confirmation findings](experiments/results/experiment_011a_confirmation_findings.md),
 [confirmation report](experiments/results/experiment_011a_confirmation_report.md),
 and [raw confirmation results](experiments/results/experiment_011a_confirmation_results.json).
+
+## Experiment 012: constructing memory from empty N
+
+Experiment 012 removes the preloaded-memory assumption. Permanent memory starts
+with zero slots, and all eight initial identities and policies must earn
+promotion through the ordinary candidate bank before novelty and reversals
+arrive.
+
+```bash
+python -m experiments.experiment_012_empty_memory --mode development
+```
+
+The result was promising but did not pass its frozen gate. Learned-cold Chevron
+built 7.5 of eight initial identities, reached a 0.900 core probe, retained
+0.921 stable accuracy, and later achieved 0.825 reversed and 0.863 novel probes.
+It improved return over the raw-sensor cold control by +0.249 and the core probe
+by +0.188, with both paired intervals excluding zero.
+
+Three return non-inferiority criteria failed: learned identity versus oracle
+identity, empty versus preloaded memory, and protected versus direct adaptation.
+Confirmation was not run. More importantly, a diagnostic found five
+self-created core memory ids lost across three of twenty lifetimes when
+representation-driven false splits exhausted permanent capacity.
+
+The next mechanism is therefore slot maturity and explicit forgetting
+permission. Creating a new memory must not automatically grant permission to
+destroy a mature one.
+
+See the [frozen protocol and outcome](experiments/experiment_012_protocol.md),
+[development findings](experiments/results/experiment_012_development_findings.md),
+[development report](experiments/results/experiment_012_development_report.md),
+and [raw development results](experiments/results/experiment_012_development_results.json).
+
+## Experiment 012a: earned slot maturity
+
+Experiment 012a separates permission to allocate a new memory from permission
+to evict an old one. A self-created slot becomes mature after four successful,
+assented uses. Mature slots cannot be selected by allocation pressure; if no
+eligible slot exists, the supported candidate returns to provisional storage.
+
+```bash
+python -m experiments.experiment_012a_slot_maturity --mode development
+```
+
+The targeted result was strong. The cold baseline lost 0.30 core slots per
+lifetime; maturity lost zero and evicted zero mature slots. It matched baseline
+post-shift return, retention, and novel probes within tight paired intervals.
+Blanket immediate protection also prevented core loss but produced more
+allocation deferrals and slightly lower novelty.
+
+The broad frozen gate nevertheless failed four criteria, including too few
+mature slots at the exact shift boundary and three narrowly missed comparative
+confidence margins. Confirmation was not run. The mechanism is supported as a
+development result, not yet confirmed.
+
+See the [frozen protocol and outcome](experiments/experiment_012a_protocol.md),
+[development findings](experiments/results/experiment_012a_development_findings.md),
+[development report](experiments/results/experiment_012a_development_report.md),
+and [raw development results](experiments/results/experiment_012a_development_results.json).

@@ -74,6 +74,14 @@ Experiment 11a — Fresh-seed confirmation of learned identity
 
 The simple pairwise temporal encoder passed all twenty-two frozen criteria across ten new encoder seeds and 200 untouched paired lifetimes. Learned Chevron improved return over the distorted raw sensor by 0.121 and novel probes by 0.625, retained 92.6% stable accuracy and made no duplicate identity, established overwrite or under-supported write. Direct adaptation remained faster, but protected Chevron finished with a 0.104 higher novel-memory probe. Identity assent can therefore be learned from temporal pairing on this task; it no longer has to be supplied as an oracle geometry.
 
+Experiment 12 — Constructing a core from empty memory
+
+Starting with no permanent slots, learned Chevron promoted 7.5 of eight initial identities, reached a 90.0% core probe, retained 92.1% stable accuracy and later achieved 82.5% reversed and 86.3% novel probes. It decisively beat raw-sensor cold start, but missed three frozen return margins, so confirmation was not run. A deeper diagnostic found five self-created core slots lost across three of twenty lifetimes when false identity splits filled permanent capacity. The new design question is explicit: permission to create a new memory must not automatically be permission to destroy a mature one.
+
+Experiment 12a — Maturity earns protection
+
+After four successful admitted uses, a self-created slot became ineligible for allocation eviction. The unprotected baseline lost 0.30 core slots per lifetime on the development seeds; maturity lost none and matched baseline post-shift return, retention and novel probes. Blanket immediate protection also prevented loss but caused more allocation deferrals. The broad gate still failed four criteria, so confirmation was not run. Earned maturity is a clean development result, not yet a confirmed component.
+
 Architecture update
 
 The resulting design does not use two rigid provisional queues. It uses:

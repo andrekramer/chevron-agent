@@ -1,0 +1,89 @@
+Learning a Core That Can Change Without Disappearing
+
+Experiments 10 to 12 followed a simple progression.
+
+Could the agent discover that an old policy was no longer trustworthy? Could it learn the identity comparison used to recognise a familiar situation? And could it construct and protect its own memory core rather than receiving one ready-made?
+
+The results do not yet give us a general agent. They do take Chevron from a supplied-memory mechanism toward an agent that can form, question and preserve its own memories.
+
+Experiment 10: withdrawing assent from an old policy
+
+Earlier experiments supplied policy compatibility before the agent acted. Experiment 10 removed that signal. The agent chose an action and received the result three decisions later, with ten per cent of rewards deliberately reversed.
+
+One surprising failure created suspicion. Two supported failures triggered policy search. Two positive outcomes for an alternative action were required before permanent revision.
+
+The agent retained 94.8 per cent accuracy on stable contexts and recovered almost all four changed policies. It was slower than direct value adaptation, but made far fewer false revisions than immediate writing.
+
+The confirmation still failed one invariant. Two observations entered the provisional bank as apparently novel. After their evidence was averaged, they had become recognisable as existing identities, but the allocator did not check again before writing them permanently.
+
+Experiment 10a added that final recheck. Across 100 new lifetimes, the original path created one duplicate identity. The corrected path intercepted exactly that candidate and created none, with effectively no cost.
+
+The lesson was clear: novelty at first encounter is provisional. Evidence must still be novel after accumulation before it can change permanent memory.
+
+Experiment 11: learning identity assent
+
+The next oracle was the identity geometry itself. Experiment 11 placed a fixed nonlinear sensor between the situation and the agent. Raw sensor similarity admitted repeated views but rejected only 16 per cent of confusable identity changes.
+
+A small residual encoder was trained from temporal persistence. It received no task identities, actions, rewards, policies or correctness labels—only noisy observations paired because they persisted together.
+
+The proposed elaborate version used four-view windows and difficult negative examples. It repaired the geometry but did not outperform simple pairs. That negative result removed unnecessary machinery.
+
+Experiment 11a froze the simpler pairwise encoder and tested ten new encoder seeds across 200 untouched lifetimes. Every predeclared criterion passed.
+
+The learned encoder admitted 98.8 per cent of repeated identities and rejected 81.7 per cent of confusable changes. Learned Chevron improved return over the distorted raw sensor by 0.121 and final novel-memory probes by 0.625, with no duplicate identities, established overwrites or under-supported writes.
+
+Identity assent no longer had to be supplied as an oracle comparison. It could be learned from temporal pairing.
+
+Experiment 12: constructing the core
+
+The agent still began with eight established identities and policies already installed. Experiment 12 started permanent memory empty.
+
+Every initial identity had to enter the ordinary provisional bank, gather delayed positive evidence, pass revalidation and earn a permanent slot. There was no special bootstrap write.
+
+The agent constructed 7.5 of eight initial identities, reached a 90 per cent core-policy probe, retained 92.1 per cent stable accuracy, and later achieved 82.5 per cent reversed and 86.3 per cent novel probes. It decisively beat the raw-sensor cold-start control.
+
+It nevertheless missed three frozen return margins, so confirmation was not run. More importantly, five self-created core slots were later lost across three of twenty lifetimes.
+
+The learned geometry occasionally split a noisy familiar identity into an apparently new one. That false split consumed permanent capacity and could displace an older self-created memory. The architecture protected memories declared established at construction time, but did not say when an agent-created memory had earned the same protection.
+
+Experiment 12a: earning maturity
+
+This suggested another separation:
+
+Permission to create a new memory is not permission to destroy a mature memory.
+
+A newly promoted slot began immature. Four later successful, assented uses made it mature. Capacity pressure could replace an immature slot but not a mature one. If every slot was mature, the unresolved candidate stayed provisional rather than silently deleting permanent memory.
+
+The targeted result was clean. The unprotected baseline lost 0.30 core slots per lifetime on the new development seeds. Use-derived maturity lost none, evicted no mature slot, and matched baseline post-shift return, retention and novel learning.
+
+Protecting every memory immediately also prevented loss, but caused more allocation deferrals and slightly weaker novelty. Earned maturity preserved flexibility while protecting memories that had repeatedly supported successful behaviour.
+
+The broad gate still failed four criteria, so maturity remains a development result rather than a confirmed component.
+
+Where this leaves us
+
+The sequence now looks like this:
+
+Delayed outcomes can withdraw assent from an obsolete policy.
+
+Promotion-time revalidation can stop provisional uncertainty becoming a duplicate permanent memory.
+
+Temporal pairing can learn the identity geometry used by the assent gate.
+
+The provisional mechanism can construct most of an initial memory core from empty storage.
+
+Repeated successful use can let a self-created memory earn protection from eviction.
+
+The recurring principle is that retrieval, read assent, policy suspicion, permanent writing and eviction permission are related decisions, but not the same decision.
+
+The next phase: rooms and routes
+
+The next useful test is a small partially observable environment where these internal distinctions become visible behaviour.
+
+The proposed world contains familiar rooms and routes, a stable safe path, a tempting trap, a later shortcut, and a familiar route whose consequences change. The agent must decide whether it is seeing a known place, an obsolete policy or something genuinely new.
+
+We should compare Chevron with and without earned maturity, direct adaptation using the same encoder and buffer, and a matched recurrent or standard attention memory.
+
+The interesting output will not just be a percentage. It will be a trajectory. Does the agent remember the safe route? Does it resist one misleading event? Can it discover that a familiar route has changed? Can it learn a shortcut without forgetting the older world?
+
+That is still far from a general agent or a coherent artificial self. But the question is now concrete: can an agent build a working core, let experience challenge it, and avoid turning every new claim into an act of self-erasure?
