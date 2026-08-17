@@ -8,7 +8,7 @@ The proposed architecture separates two questions that ordinary attention tends 
 
 This is inspired by the stability–plasticity problem and the vigilance and reset ideas in Adaptive Resonance Theory, rebuilt inside a small differentiable attention-like architecture.
 
-The initial report covered seven compact experiments. The two latest experiments add a useful architectural result. They do not demonstrate a general agent or a persistent artificial self, but they clarify how more than one kind of unresolved evidence should be handled.
+The experimental line now covers ten compact stages. They do not demonstrate a general agent or a persistent artificial self, but they clarify how more than one kind of unresolved evidence should be handled.
 
 The experiments in one line each
 
@@ -57,6 +57,14 @@ Novel-identity candidates and policy-revision candidates were tested in either o
 Experiment 9b — Fresh-seed capacity confirmation
 
 The shared-capacity result passed every predeclared criterion across 100 untouched lifetimes. Shared 8 improved return over Shared 4 by 0.156, reversed-context accuracy by 0.164 and novel-context accuracy by 0.278, while reducing evictions by 76.7%. It made no premature writes, established-memory overwrites or duplicate identities. It was also non-inferior overall to rapid identity-only adaptation: slightly slower on deterministic reversals, but significantly better at acquiring novel identities.
+
+Experiment 10 — Retrospective policy assent without an oracle policy signal
+
+The agent now had to discover an obsolete policy from delayed reward with 10% misleading outcomes. Protected Chevron learned 3.96 of four reversals, retained 94.8% stable accuracy and cut false stable-policy revisions from 16.87 under immediate writing to 0.06. It paid a 0.042 return cost against direct value adaptation but remained within the frozen margin and improved novel probes by 0.055. The complete confirmation nevertheless failed one invariant: two noisy provisional candidates became recognisably similar to established identities after averaging but were still allocated as duplicates. The next correction is to recheck identity assent immediately before permanent allocation.
+
+Experiment 10a — Assent again before consolidation
+
+The promotion-time recheck passed every frozen criterion on 100 untouched lifetimes. The original path created one duplicate; the corrected path reconciled that candidate with established memory and created none. Return changed by less than 0.0001, retention was unchanged within 0.0002, and reversed and novel probes were identical. Novelty is therefore provisional twice: evidence may enter the buffer as unresolved, but it must still be novel after accumulation before it can alter permanent memory.
 
 Architecture update
 

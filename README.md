@@ -306,3 +306,62 @@ See the [frozen protocol and outcome](experiments/experiment_009b_protocol.md),
 [confirmation findings](experiments/results/experiment_009b_confirmation_findings.md),
 [confirmation report](experiments/results/experiment_009b_confirmation_report.md),
 and [raw confirmation results](experiments/results/experiment_009b_confirmation_results.json).
+
+## Experiment 010: retrospective policy assent
+
+Experiment 010 removes the supplied pre-action policy signature. The agent sees
+only broad address and noisy identity evidence; policy mismatch must be inferred
+from reward arriving three decisions later, with 10% deliberately misleading
+reward signs.
+
+Run the frozen development experiment:
+
+```bash
+python -m experiments.experiment_010_retrospective_policy
+```
+
+Run the predeclared fresh-seed confirmation:
+
+```bash
+python -m experiments.experiment_010_confirmation
+```
+
+The protected two-failure, two-positive-outcome mechanism learned 3.96 of four
+policy reversals, retained 0.948 stable accuracy, reached 0.915 novel probe
+accuracy, and made no under-supported policy writes. It was slower than direct
+value adaptation but remained within the frozen non-inferiority margins.
+
+The confirmation did not pass. Thirteen of fourteen criteria held, but two of
+100 lifetimes allocated a duplicate identity. In both cases, evidence entered
+the buffer as apparently novel but its averaged candidate matched an existing
+memory above the identity threshold before promotion. The next narrow test is
+therefore pre-consolidation identity revalidation, not a threshold sweep.
+
+See the [frozen protocol and outcome](experiments/experiment_010_protocol.md),
+[findings](experiments/results/experiment_010_findings.md),
+[development report](experiments/results/experiment_010_development_report.md),
+[confirmation report](experiments/results/experiment_010_confirmation_report.md),
+and [raw confirmation results](experiments/results/experiment_010_confirmation_results.json).
+
+## Experiment 010a: promotion-time identity revalidation
+
+Experiment 010a makes the single correction exposed by Experiment 010: an
+aggregated provisional candidate reruns identity assent immediately before
+permanent allocation.
+
+```bash
+python -m experiments.experiment_010a_revalidation
+```
+
+Every frozen criterion passed across 100 untouched paired lifetimes. The
+original path created one duplicate; revalidation intercepted exactly that
+candidate and created none. Return changed by only -0.000025, retention by
+-0.000050, and reversed and novel probes were identical.
+
+The resulting rule is now explicit: novelty at buffer entry is provisional.
+Novelty must be re-established after evidence accumulates and before N changes.
+
+See the [frozen protocol and outcome](experiments/experiment_010a_protocol.md),
+[findings](experiments/results/experiment_010a_findings.md),
+[report](experiments/results/experiment_010a_report.md), and
+[raw results](experiments/results/experiment_010a_results.json).

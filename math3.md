@@ -1,6 +1,6 @@
 # Chevron Agent Mathematics and Architecture, Version 3
 
-Status: architecture checkpoint after Experiments 001-009b.
+Status: architecture checkpoint updated through Experiment 010a.
 
 This document supersedes `maths2.md` as the current working description of
 Chevron Agent. It preserves the original retrieval, assent, residual, and
@@ -339,6 +339,18 @@ Consolidation is typed.
 
 For a new identity candidate:
 
+```text
+re-run identity assent on the aggregated candidate
+```
+
+Provisional evidence can change as observations accumulate. A candidate that
+looked novel when it entered the bank may match an established identity after
+averaging. Permanent allocation is permitted only if the aggregated candidate
+still fails to match established identity memory. Otherwise it is reconciled
+with the matched identity or discarded; it must not create a duplicate slot.
+
+Only after this pre-consolidation revalidation passes:
+
 $$
 N_p^{id}\leftarrow T_{id}(P_l),
 \qquad
@@ -508,9 +520,17 @@ The minimum invariant suite is:
     counted provisional eviction.
 11. Address updates are gated by write permission.
 12. Read and write gates satisfy their declared ordering.
+13. A new-identity candidate reruns identity assent immediately before
+    permanent allocation; a candidate that now matches N cannot create a
+    duplicate slot.
 
 The Experiment 009b confirmation recorded zero premature permanent writes,
 zero established overwrites, and zero duplicate identity allocations.
+
+Experiment 010a directly tested invariant 13 on 100 untouched lifetimes. The
+original path created one duplicate identity; promotion-time revalidation
+intercepted exactly that candidate and produced zero duplicates without a
+measurable performance cost.
 
 ## 12. Gradient boundaries for a learned agent
 
@@ -550,12 +570,31 @@ interventions used in the early experiments.
 - The capacity-eight dual mechanism was non-inferior overall to rapid
   identity-only value adaptation, with better novel acquisition and slightly
   slower deterministic policy reversal.
+- Promotion-time identity revalidation eliminated duplicate allocation in the
+  Experiment 010a correction audit while preserving return, retention,
+  reversal learning, and novel probes within tight paired bounds.
 
 ### Supported only as a development finding
 
 - Separate identity and policy relations beat the collapsed relation and
   avoided its duplicate identities. Experiment 009 did not trigger its planned
   confirmation because the original capacity-four bank was overloaded.
+
+### Fresh-seed evidence with a failed overall confirmation
+
+- Experiment 010 removed the supplied policy signature and derived policy
+  suspicion from delayed reward with 10% misleading outcomes. Across 100 fresh
+  lifetimes, protected retrospective revision retained 0.948 stable accuracy,
+  revised 3.96 of four changed policies, reached 0.614 policy residual
+  calibration, and reduced false stable-policy revisions from 16.87 under
+  immediate writing to 0.06.
+- The Experiment 010 confirmation failed one of fourteen criteria because two
+  provisional identity candidates became matches to established memory after
+  averaging but were not revalidated before allocation. This exposed the new
+  pre-consolidation identity invariant above.
+- Experiment 010a subsequently tested that single correction on new untouched
+  seeds and passed every criterion. It does not retroactively turn Experiment
+  010 into a passing confirmation.
 
 ### Failed or not yet established
 
@@ -588,9 +627,9 @@ only through delayed evidence.
 
 ## 15. Next mathematical step
 
-The next representation-learning experiment should keep the confirmed
-two-residual, typed-bank, protected-consolidation architecture fixed and learn
-the two comparison spaces from different evidence:
+The next representation-learning experiment should keep promotion-time
+identity revalidation, the two-residual typed bank, and protected consolidation
+fixed while learning the two comparison spaces from different evidence:
 
 ```text
 identity geometry <- persistence, recurrence, and temporal continuity
